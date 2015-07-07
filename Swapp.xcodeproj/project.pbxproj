@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16BBAC851B4B7FA400D55273 /* SharedDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BBAC801B4B7FA400D55273 /* SharedDatabaseManager.m */; };
+		16BBAC861B4B7FA400D55273 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BBAC821B4B7FA400D55273 /* DBManager.m */; };
+		16BBAC871B4B7FA400D55273 /* hands.sql in Resources */ = {isa = PBXBuildFile; fileRef = 16BBAC831B4B7FA400D55273 /* hands.sql */; };
 		DAC619EF1B4B71540078F737 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619EE1B4B71540078F737 /* main.m */; };
 		DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F11B4B71540078F737 /* AppDelegate.m */; };
 		DAC619F51B4B71540078F737 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F41B4B71540078F737 /* ViewController.m */; };
@@ -27,6 +30,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16BBAC801B4B7FA400D55273 /* SharedDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDatabaseManager.m; sourceTree = "<group>"; };
+		16BBAC811B4B7FA400D55273 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		16BBAC821B4B7FA400D55273 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		16BBAC831B4B7FA400D55273 /* hands.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = hands.sql; sourceTree = "<group>"; };
+		16BBAC841B4B7FA400D55273 /* SharedDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDatabaseManager.h; sourceTree = "<group>"; };
 		DAC619E91B4B71540078F737 /* Swapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC619ED1B4B71540078F737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC619EE1B4B71540078F737 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,6 +68,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16BBAC881B4B7FB400D55273 /* database */ = {
+			isa = PBXGroup;
+			children = (
+				16BBAC801B4B7FA400D55273 /* SharedDatabaseManager.m */,
+				16BBAC811B4B7FA400D55273 /* DBManager.h */,
+				16BBAC821B4B7FA400D55273 /* DBManager.m */,
+				16BBAC841B4B7FA400D55273 /* SharedDatabaseManager.h */,
+			);
+			name = database;
+			sourceTree = "<group>";
+		};
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +100,7 @@
 		DAC619EB1B4B71540078F737 /* Swapp */ = {
 			isa = PBXGroup;
 			children = (
+				16BBAC881B4B7FB400D55273 /* database */,
 				DAC619F01B4B71540078F737 /* AppDelegate.h */,
 				DAC619F11B4B71540078F737 /* AppDelegate.m */,
 				DAC619F31B4B71540078F737 /* ViewController.h */,
@@ -96,6 +116,7 @@
 		DAC619EC1B4B71540078F737 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				16BBAC831B4B7FA400D55273 /* hands.sql */,
 				DAC619ED1B4B71540078F737 /* Info.plist */,
 				DAC619EE1B4B71540078F737 /* main.m */,
 			);
@@ -200,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
+				16BBAC871B4B7FA400D55273 /* hands.sql in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
 			);
@@ -220,8 +242,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC619F51B4B71540078F737 /* ViewController.m in Sources */,
+				16BBAC851B4B7FA400D55273 /* SharedDatabaseManager.m in Sources */,
 				DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */,
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,
+				16BBAC861B4B7FA400D55273 /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +440,7 @@
 				DAC61A0E1B4B71540078F737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAC61A0F1B4B71540078F737 /* Build configuration list for PBXNativeTarget "SwappTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +449,7 @@
 				DAC61A111B4B71540078F737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
