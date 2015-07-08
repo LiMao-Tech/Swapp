@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TableViewController.h"
 
 @interface ViewController ()
 
@@ -24,4 +25,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showTableView:(id)sender {
+    TableViewController *viewController = [[TableViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 @end
