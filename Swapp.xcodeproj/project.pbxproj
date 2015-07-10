@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16BBAC8A1B4D117300D55273 /* SwappTestJuly8th.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 16BBAC891B4D117300D55273 /* SwappTestJuly8th.mobileprovision */; };
-		16BBAC8C1B4E06A900D55273 /* SwappCertification.zip in Resources */ = {isa = PBXBuildFile; fileRef = 16BBAC8B1B4E06A800D55273 /* SwappCertification.zip */; };
-		DAB979271B4CC9B100314A35 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB979251B4CC9B100314A35 /* TableViewController.m */; };
-		DAB979281B4CC9B100314A35 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB979261B4CC9B100314A35 /* TableViewController.xib */; };
+		DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB979251B4CC9B100314A35 /* BarterTableViewController.m */; };
 		DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB9792A1B4CCA8100314A35 /* MainNavigationController.m */; };
 		DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB9792D1B4CCAC400314A35 /* MainTabBarController.m */; };
 		DAC619EF1B4B71540078F737 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619EE1B4B71540078F737 /* main.m */; };
@@ -20,6 +17,9 @@
 		DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC619F91B4B71540078F737 /* Images.xcassets */; };
 		DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC619FB1B4B71540078F737 /* LaunchScreen.xib */; };
 		DAC61A091B4B71540078F737 /* SwappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC61A081B4B71540078F737 /* SwappTests.m */; };
+		DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */; };
+		DAD5F0501B4F7C930061F8CD /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */; };
+		DAD5F0531B4F7CD20061F8CD /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,11 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		16BBAC891B4D117300D55273 /* SwappTestJuly8th.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwappTestJuly8th.mobileprovision; sourceTree = "<group>"; };
-		16BBAC8B1B4E06A800D55273 /* SwappCertification.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SwappCertification.zip; sourceTree = "<group>"; };
-		DAB979241B4CC9B100314A35 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		DAB979251B4CC9B100314A35 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		DAB979261B4CC9B100314A35 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
+		DAB979241B4CC9B100314A35 /* BarterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewController.h; sourceTree = "<group>"; };
+		DAB979251B4CC9B100314A35 /* BarterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewController.m; sourceTree = "<group>"; };
 		DAB979291B4CCA8100314A35 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		DAB9792A1B4CCA8100314A35 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		DAB9792C1B4CCAC400314A35 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -55,6 +52,12 @@
 		DAC61A021B4B71540078F737 /* SwappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC61A071B4B71540078F737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC61A081B4B71540078F737 /* SwappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwappTests.m; sourceTree = "<group>"; };
+		DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
+		DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewCell.m; sourceTree = "<group>"; };
+		DAD5F04E1B4F7C930061F8CD /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
+		DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewController.m; sourceTree = "<group>"; };
+		DAD5F0511B4F7CD20061F8CD /* MainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
+		DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,24 +78,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DAB979231B4CC76000314A35 /* AsynchronousDownload */ = {
+		DAB979231B4CC76000314A35 /* BarterTable */ = {
 			isa = PBXGroup;
 			children = (
-				DAB979241B4CC9B100314A35 /* TableViewController.h */,
-				DAB979251B4CC9B100314A35 /* TableViewController.m */,
-				DAB979261B4CC9B100314A35 /* TableViewController.xib */,
+				DAB979241B4CC9B100314A35 /* BarterTableViewController.h */,
+				DAB979251B4CC9B100314A35 /* BarterTableViewController.m */,
+				DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */,
+				DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */,
 			);
-			name = AsynchronousDownload;
+			name = BarterTable;
 			sourceTree = "<group>";
 		};
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
-				DAB979231B4CC76000314A35 /* AsynchronousDownload */,
+				DAD5F04D1B4F7C6B0061F8CD /* MainPage */,
+				DAB979231B4CC76000314A35 /* BarterTable */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
 				DAC61A051B4B71540078F737 /* SwappTests */,
 				DAC619EA1B4B71540078F737 /* Products */,
-				16BBAC8B1B4E06A800D55273 /* SwappCertification.zip */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,7 +131,6 @@
 		DAC619EC1B4B71540078F737 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				16BBAC891B4D117300D55273 /* SwappTestJuly8th.mobileprovision */,
 				DAC619ED1B4B71540078F737 /* Info.plist */,
 				DAC619EE1B4B71540078F737 /* main.m */,
 			);
@@ -149,6 +152,17 @@
 				DAC61A071B4B71540078F737 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAD5F04D1B4F7C6B0061F8CD /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5F04E1B4F7C930061F8CD /* MainCollectionViewController.h */,
+				DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */,
+				DAD5F0511B4F7CD20061F8CD /* MainCollectionViewCell.h */,
+				DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */,
+			);
+			name = MainPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +249,6 @@
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
-				DAB979281B4CC9B100314A35 /* TableViewController.xib in Resources */,
-				16BBAC8C1B4E06A900D55273 /* SwappCertification.zip in Resources */,
-				16BBAC8A1B4D117300D55273 /* SwappTestJuly8th.mobileprovision in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,11 +267,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC619F51B4B71540078F737 /* ViewController.m in Sources */,
+				DAD5F0501B4F7C930061F8CD /* MainCollectionViewController.m in Sources */,
+				DAD5F0531B4F7CD20061F8CD /* MainCollectionViewCell.m in Sources */,
 				DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */,
 				DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */,
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,
-				DAB979271B4CC9B100314A35 /* TableViewController.m in Sources */,
+				DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */,
 				DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */,
+				DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +405,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -398,11 +413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Swapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

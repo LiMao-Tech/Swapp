@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TableViewController.h"
+#import "BarterTableViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -26,7 +27,6 @@
 }
 
 - (IBAction)showTableView:(id)sender {
-    TableViewController *viewController = [[TableViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+
 }
 @end

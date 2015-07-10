@@ -6,13 +6,16 @@
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "BarterTableViewController.h"
+#import "BarterTableViewCell.h"
 
-@interface TableViewController ()
+@interface BarterTableViewController ()
 
 @end
 
-@implementation TableViewController
+NSString *resuseIdentifier = @"BarterCell";
+
+@implementation BarterTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +25,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
+    {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
+    }
+    [[self tableView] setSeparatorColor:[UIColor orangeColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +40,24 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
-    return 0;
+    return 5;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
+   
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
