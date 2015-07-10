@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface BarterTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *barterItemImage;
 
 @end

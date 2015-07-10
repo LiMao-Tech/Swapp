@@ -46,22 +46,22 @@
         <!--主頁-->
         <scene sceneID="sjD-fa-IUs">
             <objects>
-                <collectionViewController id="u03-c7-Mdp" sceneMemberID="viewController">
+                <collectionViewController id="u03-c7-Mdp" customClass="MainCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kA0-ia-sNN">
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Yu-jI-n0l">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="262" height="247"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ULM-RE-mUq">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCell" id="ULM-RE-mUq" customClass="MainCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="262" height="247"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -92,7 +92,15 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1K3-Gj-CyN" id="m6e-89-Ke1">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuN-cm-qpC">
+                                            <rect key="frame" x="0.0" y="0.0" width="212" height="150"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="barterItemImage" destination="iuN-cm-qpC" id="tOq-Hp-Sq0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -111,12 +119,17 @@
         <scene sceneID="QLN-il-d3q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fGo-ay-DQU" customClass="MainNavigationController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z8B-ds-vn4">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="z8B-ds-vn4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="uL1-1o-DZk">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="uRa-mI-8m9" kind="relationship" relationship="rootViewController" id="Xd0-tH-Il9"/>
                     </connections>
@@ -138,8 +151,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="eW9-JV-DhJ" kind="relationship" relationship="viewControllers" id="IXd-lA-t4E"/>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="5Gk-P4-iy5"/>
                         <segue destination="u03-c7-Mdp" kind="relationship" relationship="viewControllers" id="nz0-Un-Fvd"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="5Gk-P4-iy5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Tz-c9-tSi" userLabel="First Responder" sceneMemberID="firstResponder"/>

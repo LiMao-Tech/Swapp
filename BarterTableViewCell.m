@@ -15,8 +15,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    UIColor *background = [UIColor redColor];
-    [self setBackgroundColor:background];
+    //[self setBackgroundColor: [UIColor greenColor]];
+    [self.barterItemImage setBackgroundColor:[UIColor grayColor]];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -18,6 +18,8 @@
 		DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC619FB1B4B71540078F737 /* LaunchScreen.xib */; };
 		DAC61A091B4B71540078F737 /* SwappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC61A081B4B71540078F737 /* SwappTests.m */; };
 		DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */; };
+		DAD5F0501B4F7C930061F8CD /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */; };
+		DAD5F0531B4F7CD20061F8CD /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		DAC61A081B4B71540078F737 /* SwappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwappTests.m; sourceTree = "<group>"; };
 		DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
 		DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewCell.m; sourceTree = "<group>"; };
+		DAD5F04E1B4F7C930061F8CD /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
+		DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewController.m; sourceTree = "<group>"; };
+		DAD5F0511B4F7CD20061F8CD /* MainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
+		DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,7 @@
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
+				DAD5F04D1B4F7C6B0061F8CD /* MainPage */,
 				DAB979231B4CC76000314A35 /* BarterTable */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
 				DAC61A051B4B71540078F737 /* SwappTests */,
@@ -145,6 +152,17 @@
 				DAC61A071B4B71540078F737 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DAD5F04D1B4F7C6B0061F8CD /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5F04E1B4F7C930061F8CD /* MainCollectionViewController.h */,
+				DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */,
+				DAD5F0511B4F7CD20061F8CD /* MainCollectionViewCell.h */,
+				DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */,
+			);
+			name = MainPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAC619F51B4B71540078F737 /* ViewController.m in Sources */,
+				DAD5F0501B4F7C930061F8CD /* MainCollectionViewController.m in Sources */,
+				DAD5F0531B4F7CD20061F8CD /* MainCollectionViewCell.m in Sources */,
 				DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */,
 				DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */,
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,

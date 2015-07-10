@@ -25,8 +25,11 @@ NSString *resuseIdentifier = @"BarterCell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
+    {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
+    }
+    [[self tableView] setSeparatorColor:[UIColor orangeColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +41,7 @@ NSString *resuseIdentifier = @"BarterCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -48,9 +51,9 @@ NSString *resuseIdentifier = @"BarterCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
+   
     
     return cell;
 }
