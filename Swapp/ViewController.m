@@ -26,7 +26,6 @@
 }
 
 - (IBAction)showTableView:(id)sender {
-    BarterTableViewController *viewController = [[BarterTableViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+
 }
 @end

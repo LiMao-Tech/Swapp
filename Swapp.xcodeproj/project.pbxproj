@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB979251B4CC9B100314A35 /* BarterTableViewController.m */; };
-		DAB979281B4CC9B100314A35 /* BarterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB979261B4CC9B100314A35 /* BarterTableViewController.xib */; };
 		DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB9792A1B4CCA8100314A35 /* MainNavigationController.m */; };
 		DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB9792D1B4CCAC400314A35 /* MainTabBarController.m */; };
 		DAC619EF1B4B71540078F737 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619EE1B4B71540078F737 /* main.m */; };
@@ -18,6 +17,7 @@
 		DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC619F91B4B71540078F737 /* Images.xcassets */; };
 		DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC619FB1B4B71540078F737 /* LaunchScreen.xib */; };
 		DAC61A091B4B71540078F737 /* SwappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC61A081B4B71540078F737 /* SwappTests.m */; };
+		DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,6 @@
 /* Begin PBXFileReference section */
 		DAB979241B4CC9B100314A35 /* BarterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewController.h; sourceTree = "<group>"; };
 		DAB979251B4CC9B100314A35 /* BarterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewController.m; sourceTree = "<group>"; };
-		DAB979261B4CC9B100314A35 /* BarterTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarterTableViewController.xib; sourceTree = "<group>"; };
 		DAB979291B4CCA8100314A35 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		DAB9792A1B4CCA8100314A35 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		DAB9792C1B4CCAC400314A35 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
@@ -51,6 +50,8 @@
 		DAC61A021B4B71540078F737 /* SwappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC61A071B4B71540078F737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC61A081B4B71540078F737 /* SwappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwappTests.m; sourceTree = "<group>"; };
+		DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
+		DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +77,8 @@
 			children = (
 				DAB979241B4CC9B100314A35 /* BarterTableViewController.h */,
 				DAB979251B4CC9B100314A35 /* BarterTableViewController.m */,
-				DAB979261B4CC9B100314A35 /* BarterTableViewController.xib */,
+				DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */,
+				DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */,
 			);
 			name = BarterTable;
 			sourceTree = "<group>";
@@ -229,7 +231,6 @@
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
-				DAB979281B4CC9B100314A35 /* BarterTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +254,7 @@
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,
 				DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */,
 				DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */,
+				DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
