@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "BarterTableViewController.h"
 
-@interface TableViewController ()
+@interface BarterTableViewController ()
 
 @end
 
-@implementation TableViewController
+@implementation BarterTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

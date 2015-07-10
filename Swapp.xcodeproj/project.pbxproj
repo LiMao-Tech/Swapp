@@ -75,20 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DAB979231B4CC76000314A35 /* AsynchronousDownload */ = {
+		DAB979231B4CC76000314A35 /* BarterTable */ = {
 			isa = PBXGroup;
 			children = (
-				DAB979241B4CC9B100314A35 /* TableViewController.h */,
-				DAB979251B4CC9B100314A35 /* TableViewController.m */,
-				DAB979261B4CC9B100314A35 /* TableViewController.xib */,
+				DAB979241B4CC9B100314A35 /* BarterTableViewController.h */,
+				DAB979251B4CC9B100314A35 /* BarterTableViewController.m */,
+				DAB979261B4CC9B100314A35 /* BarterTableViewController.xib */,
 			);
-			name = AsynchronousDownload;
+			name = BarterTable;
 			sourceTree = "<group>";
 		};
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
-				DAB979231B4CC76000314A35 /* AsynchronousDownload */,
+				DAB979231B4CC76000314A35 /* BarterTable */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
 				DAC61A051B4B71540078F737 /* SwappTests */,
 				DAC619EA1B4B71540078F737 /* Products */,
@@ -259,7 +259,7 @@
 				DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */,
 				DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */,
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,
-				DAB979271B4CC9B100314A35 /* TableViewController.m in Sources */,
+				DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */,
 				DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

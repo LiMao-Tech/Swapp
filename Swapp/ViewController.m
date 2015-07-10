@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TableViewController.h"
+#import "BarterTableViewController.h"
 
 @interface ViewController ()
 
@@ -26,7 +26,7 @@
 }
 
 - (IBAction)showTableView:(id)sender {
-    TableViewController *viewController = [[TableViewController alloc] init];
+    BarterTableViewController *viewController = [[BarterTableViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 @end
