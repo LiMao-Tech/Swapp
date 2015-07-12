@@ -7,13 +7,14 @@
 //
 
 #import "BarterTableViewController.h"
-#import "BarterTableViewCell.h"
+
 
 @interface BarterTableViewController ()
 
 @end
 
-NSString *resuseIdentifier = @"BarterCell";
+NSString *barterCellIdentifier = @"BarterCell";
+NSString *barterCellXibName = @"BarterTableViewCell";
 
 @implementation BarterTableViewController
 
@@ -25,6 +26,10 @@ NSString *resuseIdentifier = @"BarterCell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UINib * barterCell = [UINib nibWithNibName:barterCellXibName bundle:nil];
+    [self.tableView registerNib: barterCell forCellReuseIdentifier:barterCellIdentifier];
+    
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
     {
         [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
@@ -52,7 +57,7 @@ NSString *resuseIdentifier = @"BarterCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
+    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:barterCellIdentifier forIndexPath:indexPath];
    
     
     return cell;

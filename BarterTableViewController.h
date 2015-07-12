@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BarterTableViewCell.h"
+#import "CommonImports.h"
 
 @interface BarterTableViewController : UITableViewController
 

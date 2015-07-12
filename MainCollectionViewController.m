@@ -7,11 +7,16 @@
 //
 
 #import "MainCollectionViewController.h"
-#import "MainCollectionViewCell.h"
+
 
 @interface MainCollectionViewController ()
 
 @end
+
+
+NSString *mainCellIdentifier = @"MainCell";
+NSString *mainCellXibName = @"MainCollectionViewCell";
+
 
 @implementation MainCollectionViewController
 
@@ -22,6 +27,8 @@ static NSString * const reuseIdentifier = @"MainCell";
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
+    UINib * mainCell = [UINib nibWithNibName:mainCellXibName bundle:nil];
+    [self.collectionView registerNib:mainCell forCellWithReuseIdentifier:mainCellIdentifier];
     
 }
 
@@ -70,7 +77,7 @@ static NSString * const reuseIdentifier = @"MainCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:mainCellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     return cell;

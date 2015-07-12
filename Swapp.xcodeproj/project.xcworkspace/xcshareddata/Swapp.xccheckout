@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>6EA4247D-215E-468F-840B-2F2F9EFC0876</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Swapp</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1AD78B2D101079E5A06372B3AC0B6AA67CAA914B</key>
 		<string>https://github.com/LiMao-Tech/Swapp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Swapp.xcodeproj</string>
+	<string>Swapp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1AD78B2D101079E5A06372B3AC0B6AA67CAA914B</key>
