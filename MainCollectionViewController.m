@@ -27,6 +27,7 @@ static NSString * const reuseIdentifier = @"MainCell";
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
+    [self setTitle:@"热门"];
     UINib * mainCell = [UINib nibWithNibName:mainCellXibName bundle:nil];
     [self.collectionView registerNib:mainCell forCellWithReuseIdentifier:mainCellIdentifier];
     
@@ -71,7 +72,7 @@ static NSString * const reuseIdentifier = @"MainCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     CGFloat cellWidth =[[UIScreen mainScreen] bounds].size.width/3-4;
-    CGFloat cellHeight = [[UIScreen mainScreen] bounds].size.height/3-4;
+    CGFloat cellHeight = [[UIScreen mainScreen] bounds].size.width/3-4;
     return CGSizeMake(cellWidth, cellHeight);
 }
 
@@ -80,6 +81,13 @@ static NSString * const reuseIdentifier = @"MainCell";
     MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:mainCellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
+    NSString *cellImageUrlStr = [NSString stringWithFormat:@"%@%ld.png", cloudAddrYumen, (long)indexPath.row];
+    NSURL * cellImageUrl = [NSURL URLWithString:cellImageUrlStr];
+    NSData *fetchedData = [[NSData alloc] initWithContentsOfURL:cellImageUrl];
+    
+    UIImage *fetchedImage = [UIImage imageWithData:fetchedData];
+    cell.mainCellImage.image = fetchedImage;
+    
     return cell;
 }
 

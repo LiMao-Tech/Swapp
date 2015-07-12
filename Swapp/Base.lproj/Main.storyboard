@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fGo-ay-DQU">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
@@ -25,12 +26,12 @@
             </objects>
             <point key="canvasLocation" x="1986" y="1265"/>
         </scene>
-        <!--主頁-->
+        <!--热门-->
         <scene sceneID="sjD-fa-IUs">
             <objects>
                 <collectionViewController id="u03-c7-Mdp" customClass="MainCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kA0-ia-sNN">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Yu-jI-n0l">
                             <size key="itemSize" width="262" height="247"/>
@@ -45,18 +46,19 @@
                         </connections>
                     </collectionView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="主頁" id="nG4-Sq-CIF"/>
+                    <tabBarItem key="tabBarItem" title="主页" id="nG4-Sq-CIF"/>
+                    <navigationItem key="navigationItem" title="热门" id="68M-Le-DRb"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBs-ov-aLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1328" y="1265"/>
         </scene>
-        <!--物品交換-->
+        <!--交换-->
         <scene sceneID="h5a-td-3CO">
             <objects>
                 <tableViewController id="eW9-JV-DhJ" customClass="BarterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="151" sectionHeaderHeight="22" sectionFooterHeight="22" id="vAZ-P6-WyN">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -81,7 +83,8 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="物品交換" id="dzE-4B-FFm"/>
+                    <tabBarItem key="tabBarItem" title="物品交换" id="dzE-4B-FFm"/>
+                    <navigationItem key="navigationItem" title="交换" id="Jnv-qi-nLs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FwQ-e1-KlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

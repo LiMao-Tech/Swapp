@@ -10,6 +10,6 @@
 #define Swapp_CommonImports_h
 
 // Networking
-NSString *cloudAddr = @"http://www.code-desire.com.tw/LiMao/Upload/yumen";
+NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Upload/yumen/";
 
 #endif
