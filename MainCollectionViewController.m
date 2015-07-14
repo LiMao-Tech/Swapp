@@ -7,23 +7,23 @@
 //
 
 #import "MainCollectionViewController.h"
-
+#import "BarterTableViewController.h"
+#import "CommonImports.h"
 
 @interface MainCollectionViewController ()
 
 @end
 
-
 NSString *mainCellIdentifier = @"MainCell";
 NSString *mainCellXibName = @"MainCollectionViewCell";
 
-
+NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/";
 @implementation MainCollectionViewController
-
-static NSString * const reuseIdentifier = @"MainCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,6 +31,10 @@ static NSString * const reuseIdentifier = @"MainCell";
     UINib * mainCell = [UINib nibWithNibName:mainCellXibName bundle:nil];
     [self.collectionView registerNib:mainCell forCellWithReuseIdentifier:mainCellIdentifier];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar.topItem setTitle: @"热门"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +52,22 @@ static NSString * const reuseIdentifier = @"MainCell";
 }
 */
 
+- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error )
+                               {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else{
+                                   completionBlock(NO,nil);
+                               }
+                           }];
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -62,17 +82,29 @@ static NSString * const reuseIdentifier = @"MainCell";
 }
 
 - (CGFloat) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    
     return 2;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    
     return 2;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat cellWidth =[[UIScreen mainScreen] bounds].size.width/3-4;
-    CGFloat cellHeight = [[UIScreen mainScreen] bounds].size.width/3-4;
+    CGFloat cellWidth;
+    CGFloat cellHeight;
+    NSLog(@"row: %ld", indexPath.row);
+    
+    if (indexPath.row== 0) {
+        cellWidth =[[UIScreen mainScreen] bounds].size.width*2/3;
+        cellHeight = [[UIScreen mainScreen] bounds].size.width*2/3;
+    }
+    else {
+        cellWidth =[[UIScreen mainScreen] bounds].size.width/3 - 3;
+        cellHeight = [[UIScreen mainScreen] bounds].size.width/3 - 3;
+    }
     return CGSizeMake(cellWidth, cellHeight);
 }
 
@@ -83,15 +115,35 @@ static NSString * const reuseIdentifier = @"MainCell";
     // Configure the cell
     NSString *cellImageUrlStr = [NSString stringWithFormat:@"%@%ld.png", cloudAddrYumen, (long)indexPath.row];
     NSURL * cellImageUrl = [NSURL URLWithString:cellImageUrlStr];
+    
+    
+    [self downloadImageWithURL:cellImageUrl completionBlock:^(BOOL succeeded, UIImage *image) {
+        if (succeeded) {
+            // change the image in the cell
+            [cell.mainCellImage setImage: image];
+  
+            // cache the image for use later (when scrolling up)
+        }
+    }];
+    
+    /*
+    
     NSData *fetchedData = [[NSData alloc] initWithContentsOfURL:cellImageUrl];
     
     UIImage *fetchedImage = [UIImage imageWithData:fetchedData];
     cell.mainCellImage.image = fetchedImage;
+    */
     
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    
+    NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
+}
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -100,12 +152,10 @@ static NSString * const reuseIdentifier = @"MainCell";
 }
 */
 
-/*
 // Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

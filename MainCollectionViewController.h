@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MainCollectionViewCell.h"
-#import "CommonImports.h"
+
 
 @interface MainCollectionViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 

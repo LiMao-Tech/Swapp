@@ -9,7 +9,9 @@
 #ifndef Swapp_CommonImports_h
 #define Swapp_CommonImports_h
 
+// Enums
+
 // Networking
-NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Upload/yumen/";
+
 
 #endif
