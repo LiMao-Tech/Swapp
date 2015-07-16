@@ -8,7 +8,7 @@
 
 #import "BarterTableViewController.h"
 #import "CommonImports.h"
-
+#include "NetworkCheck.h"
 
 @interface BarterTableViewController ()
 

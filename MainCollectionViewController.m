@@ -10,6 +10,7 @@
 #import "BarterTableViewController.h"
 #import "CommonImports.h"
 
+
 @interface MainCollectionViewController ()
 
 @end
@@ -17,12 +18,13 @@
 NSString *mainCellIdentifier = @"MainCell";
 NSString *mainCellXibName = @"MainCollectionViewCell";
 
+NSString *hostName = @"http://www.code-desire.com.tw";
 NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/";
+
 @implementation MainCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     
     // Uncomment the following line to preserve selection between presentations
@@ -31,10 +33,18 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
     UINib * mainCell = [UINib nibWithNibName:mainCellXibName bundle:nil];
     [self.collectionView registerNib:mainCell forCellWithReuseIdentifier:mainCellIdentifier];
     
+    self.networkManager = [Reachability reachabilityForInternetConnection];
+    self.networkManager.reachableBlock = ^(Reachability*reach)
+    {
+        NSLog(@"REACHABLE!");
+    };
+    [self.networkManager startNotifier];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar.topItem setTitle: @"热门"];
+    [self setIsUserWarned:false];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +105,7 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
     
     CGFloat cellWidth;
     CGFloat cellHeight;
-    NSLog(@"row: %ld", indexPath.row);
+    // NSLog(@"row: %ld", indexPath.row);
     
     if (indexPath.row== 0) {
         cellWidth =[[UIScreen mainScreen] bounds].size.width*2/3;
@@ -121,18 +131,67 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
         if (succeeded) {
             // change the image in the cell
             [cell.mainCellImage setImage: image];
-  
+            
             // cache the image for use later (when scrolling up)
+        }
+        else {
+            NSLog(@"Waiting for image.");
         }
     }];
     
+    NetworkStatus status = [self.networkManager currentReachabilityStatus];
+    
+    if(status == NotReachable)
+    {
+        //No internet
+        if (!self.isUserWarned) {
+            UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"无网络连接"
+                                                               message:@"请开启手机信号或连接到WiFi"
+                                                              delegate:self
+                                                     cancelButtonTitle:@"OK"
+                                                     otherButtonTitles:nil];
+            [theAlert show];
+            [self setIsUserWarned:true];
+            
+        }
+        
+    }
+    else if (status == ReachableViaWiFi)
+    {
+        //WiFi
+        NSLog(@"YES. Reachable by WiFi.");
+    }
+    else if (status == ReachableViaWWAN)
+    {
+        //3G
+        NSLog(@"YES. Reachable by WWAN.");
+    }
+    
     /*
+    NSString * status = [self.networkManager currentReachabilityString];
+    NSLog(@"%@", status);
     
-    NSData *fetchedData = [[NSData alloc] initWithContentsOfURL:cellImageUrl];
+    if ([self.networkManager isReachable]) {
+        NSLog(@"YES. Reachable.");
+    }
+    else {
+        NSLog(@"No. Not Reachable at All.");
+    }
     
-    UIImage *fetchedImage = [UIImage imageWithData:fetchedData];
-    cell.mainCellImage.image = fetchedImage;
-    */
+    if([self.networkManager isReachableViaWiFi]) {
+        NSLog(@"YES. Reachable by WiFi.");
+    }
+    else {
+        NSLog(@"No. Not Reachable by WiFi.");
+    }
+    
+    if([self.networkManager isReachableViaWWAN]) {
+        NSLog(@"YES. Reachable by WWAN.");
+    }
+    else {
+        NSLog(@"No. Not Reachable by WWAN.");
+    }
+     */
     
     return cell;
 }

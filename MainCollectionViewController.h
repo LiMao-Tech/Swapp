@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "MainCollectionViewCell.h"
-
+#include "NetworkCheck.h"
 
 @interface MainCollectionViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
+@property (strong) Reachability * networkManager;
+@property bool isUserWarned;
 @end
