@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16FF05CE1B58A8D200E6FE17 /* SwappCertification.zip in Resources */ = {isa = PBXBuildFile; fileRef = 16FF05CD1B58A8D200E6FE17 /* SwappCertification.zip */; };
+		16FF05D11B58A9A200E6FE17 /* CertificationREADME.txt in Resources */ = {isa = PBXBuildFile; fileRef = 16FF05D01B58A9A200E6FE17 /* CertificationREADME.txt */; };
 		C4023BC21B51F3E100CC5A45 /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4023BC01B51F3E100CC5A45 /* BarterTableViewCell.m */; };
 		C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4023BC11B51F3E100CC5A45 /* BarterTableViewCell.xib */; };
 		C4023BC71B51F40F00CC5A45 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4023BC51B51F40F00CC5A45 /* MainCollectionViewCell.m */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16FF05CD1B58A8D200E6FE17 /* SwappCertification.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SwappCertification.zip; sourceTree = "<group>"; };
+		16FF05D01B58A9A200E6FE17 /* CertificationREADME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CertificationREADME.txt; sourceTree = "<group>"; };
 		C4023BBF1B51F3E100CC5A45 /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
 		C4023BC01B51F3E100CC5A45 /* BarterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewCell.m; sourceTree = "<group>"; };
 		C4023BC11B51F3E100CC5A45 /* BarterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarterTableViewCell.xib; sourceTree = "<group>"; };
@@ -94,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16FF05CF1B58A8D700E6FE17 /* Certifications */ = {
+			isa = PBXGroup;
+			children = (
+				16FF05CD1B58A8D200E6FE17 /* SwappCertification.zip */,
+				16FF05D01B58A9A200E6FE17 /* CertificationREADME.txt */,
+			);
+			name = Certifications;
+			sourceTree = "<group>";
+		};
 		C4DBBC8E1B54BFA500E62818 /* NetworkReliability */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +134,7 @@
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
+				16FF05CF1B58A8D700E6FE17 /* Certifications */,
 				C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */,
 				C4DBBC8E1B54BFA500E62818 /* NetworkReliability */,
 				DAD5F04D1B4F7C6B0061F8CD /* MainPage */,
@@ -279,12 +293,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16FF05CE1B58A8D200E6FE17 /* SwappCertification.zip in Resources */,
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
 				C4023BC81B51F40F00CC5A45 /* MainCollectionViewCell.xib in Resources */,
 				C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */,
 				C42505071B52C4D700231183 /* BarterDetailViewController.xib in Resources */,
+				16FF05D11B58A9A200E6FE17 /* CertificationREADME.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
