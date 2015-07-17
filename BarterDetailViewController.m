@@ -1,23 +1,28 @@
 //
-//  MainNavigationController.m
+//  BarterDetailViewController.m
 //  Swapp
 //
-//  Created by Gawain Tsao on 7/7/15.
+//  Created by Yumen Cao on 7/12/15.
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
-#import "MainNavigationController.h"
+#import "BarterDetailViewController.h"
 
-@interface MainNavigationController ()
+@interface BarterDetailViewController ()
 
 @end
 
-@implementation MainNavigationController
+@implementation BarterDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    NSLog(@"Navigation Controller Loaded.");
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    // [self.navigationController.navigationBar.topItem setTitle: @"back"];
+    // [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,4 +40,13 @@
 }
 */
 
+- (IBAction)likeAction:(id)sender {
+    
+    
+}
+
+- (IBAction)unlikeAction:(id)sender {
+    
+    
+}
 @end

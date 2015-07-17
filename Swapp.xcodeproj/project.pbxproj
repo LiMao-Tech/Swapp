@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4023BC21B51F3E100CC5A45 /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4023BC01B51F3E100CC5A45 /* BarterTableViewCell.m */; };
+		C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4023BC11B51F3E100CC5A45 /* BarterTableViewCell.xib */; };
+		C4023BC71B51F40F00CC5A45 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4023BC51B51F40F00CC5A45 /* MainCollectionViewCell.m */; };
+		C4023BC81B51F40F00CC5A45 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4023BC61B51F40F00CC5A45 /* MainCollectionViewCell.xib */; };
+		C42505061B52C4D700231183 /* BarterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C42505041B52C4D700231183 /* BarterDetailViewController.m */; };
+		C42505071B52C4D700231183 /* BarterDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C42505051B52C4D700231183 /* BarterDetailViewController.xib */; };
+		C4B016191B567E0600EA4F92 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */; };
+		C4DBBC901B54C07C00E62818 /* NetworkCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */; };
 		DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB979251B4CC9B100314A35 /* BarterTableViewController.m */; };
 		DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB9792A1B4CCA8100314A35 /* MainNavigationController.m */; };
 		DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB9792D1B4CCAC400314A35 /* MainTabBarController.m */; };
@@ -17,9 +25,7 @@
 		DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC619F91B4B71540078F737 /* Images.xcassets */; };
 		DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC619FB1B4B71540078F737 /* LaunchScreen.xib */; };
 		DAC61A091B4B71540078F737 /* SwappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC61A081B4B71540078F737 /* SwappTests.m */; };
-		DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */; };
 		DAD5F0501B4F7C930061F8CD /* MainCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */; };
-		DAD5F0531B4F7CD20061F8CD /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4023BBF1B51F3E100CC5A45 /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
+		C4023BC01B51F3E100CC5A45 /* BarterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewCell.m; sourceTree = "<group>"; };
+		C4023BC11B51F3E100CC5A45 /* BarterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarterTableViewCell.xib; sourceTree = "<group>"; };
+		C4023BC41B51F40F00CC5A45 /* MainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
+		C4023BC51B51F40F00CC5A45 /* MainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
+		C4023BC61B51F40F00CC5A45 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		C4023BC91B51F8D000CC5A45 /* CommonImports.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonImports.h; sourceTree = "<group>"; };
+		C42505031B52C4D700231183 /* BarterDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterDetailViewController.h; sourceTree = "<group>"; };
+		C42505041B52C4D700231183 /* BarterDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterDetailViewController.m; sourceTree = "<group>"; };
+		C42505051B52C4D700231183 /* BarterDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarterDetailViewController.xib; sourceTree = "<group>"; };
+		C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCheck.m; sourceTree = "<group>"; };
+		C4DBBC911B54C09800E62818 /* NetworkCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCheck.h; sourceTree = "<group>"; };
 		DAB979241B4CC9B100314A35 /* BarterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewController.h; sourceTree = "<group>"; };
 		DAB979251B4CC9B100314A35 /* BarterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewController.m; sourceTree = "<group>"; };
 		DAB979291B4CCA8100314A35 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
@@ -52,12 +71,8 @@
 		DAC61A021B4B71540078F737 /* SwappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC61A071B4B71540078F737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC61A081B4B71540078F737 /* SwappTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwappTests.m; sourceTree = "<group>"; };
-		DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
-		DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewCell.m; sourceTree = "<group>"; };
 		DAD5F04E1B4F7C930061F8CD /* MainCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewController.h; sourceTree = "<group>"; };
 		DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewController.m; sourceTree = "<group>"; };
-		DAD5F0511B4F7CD20061F8CD /* MainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
-		DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4B016191B567E0600EA4F92 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,13 +94,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4DBBC8E1B54BFA500E62818 /* NetworkReliability */ = {
+			isa = PBXGroup;
+			children = (
+				C4DBBC911B54C09800E62818 /* NetworkCheck.h */,
+				C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */,
+			);
+			name = NetworkReliability;
+			sourceTree = "<group>";
+		};
 		DAB979231B4CC76000314A35 /* BarterTable */ = {
 			isa = PBXGroup;
 			children = (
 				DAB979241B4CC9B100314A35 /* BarterTableViewController.h */,
 				DAB979251B4CC9B100314A35 /* BarterTableViewController.m */,
-				DAD5F0481B4F72020061F8CD /* BarterTableViewCell.h */,
-				DAD5F0491B4F72020061F8CD /* BarterTableViewCell.m */,
+				C4023BBF1B51F3E100CC5A45 /* BarterTableViewCell.h */,
+				C4023BC01B51F3E100CC5A45 /* BarterTableViewCell.m */,
+				C4023BC11B51F3E100CC5A45 /* BarterTableViewCell.xib */,
+				C42505031B52C4D700231183 /* BarterDetailViewController.h */,
+				C42505041B52C4D700231183 /* BarterDetailViewController.m */,
+				C42505051B52C4D700231183 /* BarterDetailViewController.xib */,
 			);
 			name = BarterTable;
 			sourceTree = "<group>";
@@ -92,6 +121,8 @@
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
+				C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */,
+				C4DBBC8E1B54BFA500E62818 /* NetworkReliability */,
 				DAD5F04D1B4F7C6B0061F8CD /* MainPage */,
 				DAB979231B4CC76000314A35 /* BarterTable */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
@@ -119,11 +150,12 @@
 				DAC619F61B4B71540078F737 /* Main.storyboard */,
 				DAC619F91B4B71540078F737 /* Images.xcassets */,
 				DAC619FB1B4B71540078F737 /* LaunchScreen.xib */,
-				DAC619EC1B4B71540078F737 /* Supporting Files */,
 				DAB979291B4CCA8100314A35 /* MainNavigationController.h */,
 				DAB9792A1B4CCA8100314A35 /* MainNavigationController.m */,
 				DAB9792C1B4CCAC400314A35 /* MainTabBarController.h */,
 				DAB9792D1B4CCAC400314A35 /* MainTabBarController.m */,
+				C4023BC91B51F8D000CC5A45 /* CommonImports.h */,
+				DAC619EC1B4B71540078F737 /* Supporting Files */,
 			);
 			path = Swapp;
 			sourceTree = "<group>";
@@ -159,8 +191,9 @@
 			children = (
 				DAD5F04E1B4F7C930061F8CD /* MainCollectionViewController.h */,
 				DAD5F04F1B4F7C930061F8CD /* MainCollectionViewController.m */,
-				DAD5F0511B4F7CD20061F8CD /* MainCollectionViewCell.h */,
-				DAD5F0521B4F7CD20061F8CD /* MainCollectionViewCell.m */,
+				C4023BC41B51F40F00CC5A45 /* MainCollectionViewCell.h */,
+				C4023BC51B51F40F00CC5A45 /* MainCollectionViewCell.m */,
+				C4023BC61B51F40F00CC5A45 /* MainCollectionViewCell.xib */,
 			);
 			name = MainPage;
 			sourceTree = "<group>";
@@ -249,6 +282,9 @@
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
+				C4023BC81B51F40F00CC5A45 /* MainCollectionViewCell.xib in Resources */,
+				C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */,
+				C42505071B52C4D700231183 /* BarterDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,13 +304,15 @@
 			files = (
 				DAC619F51B4B71540078F737 /* ViewController.m in Sources */,
 				DAD5F0501B4F7C930061F8CD /* MainCollectionViewController.m in Sources */,
-				DAD5F0531B4F7CD20061F8CD /* MainCollectionViewCell.m in Sources */,
+				C4023BC71B51F40F00CC5A45 /* MainCollectionViewCell.m in Sources */,
 				DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */,
 				DAB9792E1B4CCAC400314A35 /* MainTabBarController.m in Sources */,
+				C4023BC21B51F3E100CC5A45 /* BarterTableViewCell.m in Sources */,
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,
 				DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */,
+				C4DBBC901B54C07C00E62818 /* NetworkCheck.m in Sources */,
 				DAB9792B1B4CCA8100314A35 /* MainNavigationController.m in Sources */,
-				DAD5F04B1B4F72020061F8CD /* BarterTableViewCell.m in Sources */,
+				C42505061B52C4D700231183 /* BarterDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Swapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

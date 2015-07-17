@@ -38,6 +38,8 @@
     
     /* remote notification setting ends */
     
+    // set up network checking 
+    
     return YES;
 }
 

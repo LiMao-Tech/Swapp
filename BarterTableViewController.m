@@ -7,13 +7,16 @@
 //
 
 #import "BarterTableViewController.h"
-#import "BarterTableViewCell.h"
+#import "CommonImports.h"
+#include "NetworkCheck.h"
 
 @interface BarterTableViewController ()
 
 @end
 
-NSString *resuseIdentifier = @"BarterCell";
+NSString *barterCellIdentifier = @"BarterCell";
+NSString *barterCellXibName = @"BarterTableViewCell";
+NSString *barterDetailXibName = @"BarterDetailViewController";
 
 @implementation BarterTableViewController
 
@@ -25,11 +28,21 @@ NSString *resuseIdentifier = @"BarterCell";
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+
+    
+    UINib * barterCell = [UINib nibWithNibName:barterCellXibName bundle:nil];
+    [self.tableView registerNib: barterCell forCellReuseIdentifier:barterCellIdentifier];
+    
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
     {
         [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
     }
     [[self tableView] setSeparatorColor:[UIColor orangeColor]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar.topItem setTitle: @"交换"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,10 +65,23 @@ NSString *resuseIdentifier = @"BarterCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:resuseIdentifier forIndexPath:indexPath];
-   
+    BarterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:barterCellIdentifier forIndexPath:indexPath];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Value Selected by user
+    // NSString *selectedValue = [displayValues objectAtIndex:indexPath.row];
+    //Initialize new viewController
+    BarterDetailViewController *barterDetailViewController = [[BarterDetailViewController alloc] initWithNibName:barterDetailXibName bundle:nil];
+    //Pass selected value to a property declared in NewViewController
+    // viewController.valueToPrint = selectedValue;
+    //Push new view to navigationController stack
+    
+    // [barterDetailViewController.navigationController.navigationBar.topItem setTitle:@"Details"];
+    [self.navigationController pushViewController:barterDetailViewController animated:YES];
 }
 
 
