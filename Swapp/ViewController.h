@@ -10,6 +10,32 @@
 
 @interface ViewController : UIViewController
 
+<UITableViewDataSource,UITableViewDelegate>{//drive the message display; get called back
+    //UI elements
+    IBOutlet UITextField *messageText;
+    IBOutlet UIButton *sendButton;
+    IBOutlet UITableView *messageList;
+    //XML buffer
+    NSMutableData *receivedData;
+    NSMutableArray *messages;
+    int lastId;
+    //watchdog
+    NSTimer *timer;
+    //XML parser variables; holds lots of states
+    NSXMLParser *chatParser;
+    NSString *msgAdded;
+    NSMutableString *msgUser;
+    NSMutableString *msgText;
+    int msgId;
+    Boolean inText;
+    Boolean inUser;
+}
+//property
+@property (nonatomic,retain) UITextField *messageText;
+@property (nonatomic,retain) UIButton *sendButton;
+@property (nonatomic,retain) UITableView *messageList;
+//click handler
+- (IBAction)sendClicked:(id)sender;
 
 @end
 

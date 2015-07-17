@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6438C5C21B549E4F004E0AB8 /* ChatListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6438C5C11B549E4F004E0AB8 /* ChatListItem.xib */; };
+		64ADC46D1B50CB93006B4C7C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64ADC46C1B50CB93006B4C7C /* Settings.bundle */; };
 		DAC619EF1B4B71540078F737 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619EE1B4B71540078F737 /* main.m */; };
 		DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F11B4B71540078F737 /* AppDelegate.m */; };
 		DAC619F51B4B71540078F737 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F41B4B71540078F737 /* ViewController.m */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6438C5C11B549E4F004E0AB8 /* ChatListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatListItem.xib; sourceTree = "<group>"; };
+		64ADC46C1B50CB93006B4C7C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DAC619E91B4B71540078F737 /* Swapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC619ED1B4B71540078F737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC619EE1B4B71540078F737 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				DAC619F91B4B71540078F737 /* Images.xcassets */,
 				DAC619FB1B4B71540078F737 /* LaunchScreen.xib */,
 				DAC619EC1B4B71540078F737 /* Supporting Files */,
+				64ADC46C1B50CB93006B4C7C /* Settings.bundle */,
+				6438C5C11B549E4F004E0AB8 /* ChatListItem.xib */,
 			);
 			path = Swapp;
 			sourceTree = "<group>";
@@ -199,7 +205,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64ADC46D1B50CB93006B4C7C /* Settings.bundle in Resources */,
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
+				6438C5C21B549E4F004E0AB8 /* ChatListItem.xib in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
 			);
@@ -347,9 +355,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Swapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -357,9 +368,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Swapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -416,6 +430,7 @@
 				DAC61A0E1B4B71540078F737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DAC61A0F1B4B71540078F737 /* Build configuration list for PBXNativeTarget "SwappTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +439,7 @@
 				DAC61A111B4B71540078F737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
