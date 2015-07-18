@@ -11,8 +11,6 @@
 			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
-			<key>User</key>
-			<string>user_preference</string>
 			<key>AutocapitalizationType</key>
 			<string>None</string>
 			<key>AutocorrectionType</key>
@@ -22,11 +20,9 @@
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
-			<string>name_preference</string>
-			<key>KeyboardType</key>
-			<string>Alphabet</string>
+			<string>user_preference</string>
 			<key>Title</key>
-			<string>Name</string>
+			<string>User</string>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 		</dict>

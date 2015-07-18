@@ -41,7 +41,7 @@
 }
 
 - (void)getNewMessages {
-    NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php?past=%d&t=%ld",lastId,time(0)];
+    NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php?past=%d",lastId];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];// arc, autorelease omit
                                     [request setURL:[NSURL URLWithString:url]];
                                     [request setHTTPMethod:@"GET"];
@@ -166,7 +166,7 @@ didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qu
 
     return cell;
 }
-//message send function
+//message send function  worked!
 -(IBAction)sendClicked:(id)sender{
     if ([messageText.text length] > 0) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -178,8 +178,9 @@ didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qu
         [request setHTTPMethod:@"post"];
         
         NSMutableData *body = [NSMutableData data];
-        [body appendData:[[NSString stringWithFormat:@"user=%@message=%@",[defaults stringForKey:@"user_preference"],messageText.text]dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"user=%@&message=%@",[defaults stringForKey:@"user_preference"],messageText.text]dataUsingEncoding:NSUTF8StringEncoding]];
         [request setHTTPBody:body];
+        
         
         NSHTTPURLResponse *response = nil;
         NSError *error = [[NSError alloc]init];
