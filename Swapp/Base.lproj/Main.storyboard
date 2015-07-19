@@ -57,7 +57,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="messageList" destination="EMB-Ni-6Tk" id="bYK-O7-ah3"/>
+                        <outlet property="messageList" destination="EMB-Ni-6Tk" id="xgb-cL-YlU"/>
                         <outlet property="messageText" destination="Zqu-wH-DSz" id="u3I-DI-UZW"/>
                         <outlet property="sendButton" destination="gM3-MG-ktx" id="O4d-dw-Lm8"/>
                     </connections>

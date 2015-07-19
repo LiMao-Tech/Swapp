@@ -41,12 +41,12 @@
 }
 
 - (void)getNewMessages {
-    NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php?past=%d",lastId];
+    NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];// arc, autorelease omit
                                     [request setURL:[NSURL URLWithString:url]];
                                     [request setHTTPMethod:@"GET"];
-    NSURLConnection *conn = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    if(conn){
+    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    if(connection){
         receivedData = [NSMutableData data];
     }
 //    else{
@@ -98,8 +98,7 @@ didReceiveResponse:(NSURLResponse *)response{
  
  */
 //遍历XML节点
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"message"]){
         msgAdded = [attributeDict objectForKey:@"added"];
         msgId = [[attributeDict objectForKey:@"id"] intValue];
