@@ -65,7 +65,7 @@ didReceiveResponse:(NSURLResponse *)response{
     didReceiveData:(NSData *)data{
     [receivedData appendData:data];
     printf("receive data \n");
-    NSLog(data);
+    NSLog(@"%@", data);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{//starts XML parser
