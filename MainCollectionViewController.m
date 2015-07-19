@@ -50,6 +50,7 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    NSLog(@"Did receive Memory warning called");
 }
 
 /*
