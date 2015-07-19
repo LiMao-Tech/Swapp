@@ -48,6 +48,7 @@
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     if(connection){
         receivedData = [NSMutableData data];
+        printf("ok....\n");
     }
 //    else{
 //        
@@ -57,11 +58,14 @@
 - (void)connection:(NSURLConnection *)connection
 didReceiveResponse:(NSURLResponse *)response{
     [receivedData setLength:0];
+    printf("receive response\n");
 }
 
 - (void)connection:(NSURLConnection *)connection
     didReceiveData:(NSData *)data{
     [receivedData appendData:data];
+    printf("receive data \n");
+    NSLog(data);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{//starts XML parser
@@ -71,10 +75,11 @@ didReceiveResponse:(NSURLResponse *)response{
     
     chatParser = [[NSXMLParser alloc] initWithData:receivedData];
     [chatParser setDelegate:self];
+    NSLog(@"parse");
     [chatParser parse];
-    
+    NSLog(@"parse over");
     [messageList reloadData];
-    
+    NSLog(@"reloadData");
     //调用对象消息
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
                                 [self methodSignatureForSelector: @selector(timerCallback)]];
