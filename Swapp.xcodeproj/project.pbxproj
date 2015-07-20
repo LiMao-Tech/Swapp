@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6438C5C21B549E4F004E0AB8 /* ChatListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6438C5C11B549E4F004E0AB8 /* ChatListItem.xib */; };
 		64ADC46D1B50CB93006B4C7C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64ADC46C1B50CB93006B4C7C /* Settings.bundle */; };
+		64CF23591B5C982D00DC2298 /* ChatListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CF23581B5C982D00DC2298 /* ChatListItem.m */; };
 		DAC619EF1B4B71540078F737 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619EE1B4B71540078F737 /* main.m */; };
 		DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F11B4B71540078F737 /* AppDelegate.m */; };
 		DAC619F51B4B71540078F737 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F41B4B71540078F737 /* ViewController.m */; };
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		6438C5C11B549E4F004E0AB8 /* ChatListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatListItem.xib; sourceTree = "<group>"; };
 		64ADC46C1B50CB93006B4C7C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		64CF23571B5C982D00DC2298 /* ChatListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListItem.h; sourceTree = "<group>"; };
+		64CF23581B5C982D00DC2298 /* ChatListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListItem.m; sourceTree = "<group>"; };
 		DAC619E91B4B71540078F737 /* Swapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAC619ED1B4B71540078F737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DAC619EE1B4B71540078F737 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				DAC619EC1B4B71540078F737 /* Supporting Files */,
 				64ADC46C1B50CB93006B4C7C /* Settings.bundle */,
 				6438C5C11B549E4F004E0AB8 /* ChatListItem.xib */,
+				64CF23571B5C982D00DC2298 /* ChatListItem.h */,
+				64CF23581B5C982D00DC2298 /* ChatListItem.m */,
 			);
 			path = Swapp;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64CF23591B5C982D00DC2298 /* ChatListItem.m in Sources */,
 				DAC619F51B4B71540078F737 /* ViewController.m in Sources */,
 				DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */,
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,

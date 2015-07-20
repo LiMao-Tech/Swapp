@@ -9,7 +9,6 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
@@ -65,7 +64,7 @@ didReceiveResponse:(NSURLResponse *)response{
     didReceiveData:(NSData *)data{
     [receivedData appendData:data];
     printf("receive data \n");
-    NSLog(@"%@", data);
+//    NSLog(@"%@", receivedData);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{//starts XML parser
@@ -75,7 +74,6 @@ didReceiveResponse:(NSURLResponse *)response{
     
     chatParser = [[NSXMLParser alloc] initWithData:receivedData];
     [chatParser setDelegate:self];
-    NSLog(@"parse");
     [chatParser parse];
     NSLog(@"parse over");
     [messageList reloadData];
@@ -111,13 +109,15 @@ didReceiveResponse:(NSURLResponse *)response{
         msgText = [[NSMutableString alloc]init];
         inUser = NO;
         inText = NO;
+//        NSLog(@"megAdded=%@",msgAdded);
     }
     if([elementName isEqualToString:@"user"]){
         inUser = YES;
     }
-    if([elementName isEqualToString:@"Text"]){
+    if([elementName isEqualToString:@"text"]){
         inText = YES;
     }
+//    NSLog(@"start parsing...");
 }
 //节点有值，call
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
@@ -127,6 +127,7 @@ didReceiveResponse:(NSURLResponse *)response{
     if(inText){
         [msgText appendString:string];
     }
+//    NSLog(@"get parse value");
 }
 //遇到结束标记，call
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
@@ -141,13 +142,15 @@ didReceiveResponse:(NSURLResponse *)response{
     if ([elementName isEqualToString:@"text"]) {
         inText = NO;
     }
+//    NSLog(@"end parse...");
+    NSLog(@"messages=%@",messages);
 }
 //message display
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
--(NSInteger)tableView:(UITableView *)myTableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return (messages == nil) ? 0 : [messages count];
 }
 
