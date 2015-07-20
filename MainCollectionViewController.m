@@ -8,7 +8,9 @@
 
 #import "MainCollectionViewController.h"
 #import "BarterTableViewController.h"
+#import "SWRevealViewController.h"
 #import "CommonImports.h"
+
 
 
 @interface MainCollectionViewController ()
@@ -26,10 +28,21 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // setup sidebar menu
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sideBarButton setTarget: self.revealViewController];
+        [self.sideBarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     [self setTitle:@"热门"];
+    
+    // Register Xib
     UINib * mainCell = [UINib nibWithNibName:mainCellXibName bundle:nil];
     [self.collectionView registerNib:mainCell forCellWithReuseIdentifier:mainCellIdentifier];
     
