@@ -25,6 +25,7 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
 
 @implementation MainCollectionViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -119,15 +120,10 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
     CGFloat cellWidth;
     CGFloat cellHeight;
     // NSLog(@"row: %ld", indexPath.row);
-    
-    if (indexPath.row== 0) {
-        cellWidth =[[UIScreen mainScreen] bounds].size.width*2/3;
-        cellHeight = [[UIScreen mainScreen] bounds].size.width*2/3;
-    }
-    else {
-        cellWidth =[[UIScreen mainScreen] bounds].size.width/3 - 3;
-        cellHeight = [[UIScreen mainScreen] bounds].size.width/3 - 3;
-    }
+
+    cellWidth =[[UIScreen mainScreen] bounds].size.width/3 - 3;
+    cellHeight = [[UIScreen mainScreen] bounds].size.width/3 - 3;
+
     return CGSizeMake(cellWidth, cellHeight);
 }
 
@@ -176,6 +172,7 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
     }
     else if (status == ReachableViaWWAN)
     {
+
         //3G
         NSLog(@"YES. Reachable by WWAN.");
     }
@@ -205,16 +202,42 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
         NSLog(@"No. Not Reachable by WWAN.");
     }
      */
-    
+
     return cell;
 }
 
+
+
 #pragma mark <UICollectionViewDelegate>
+
+
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            cell.transform = CGAffineTransformMakeScale(1.6,1.6);
+        } completion:^(BOOL finished){
+        
+        }
+     ];
+    /*
+    [UIView transitionWithView:collectionView
+                      duration:2
+                       options:UIViewAnimationOptionTransitionCurlUp
+                    animations:^{
+                        
+                        //any animatable attribute here.
+                        cell.frame = CGRectMake(3, 14, 100, 100);
+                        
+                    } completion:^(BOOL finished) {
+                        
+                        //whatever you want to do upon completion
+                        
+                    }];
+    
     NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
+     */
 }
 
 /*

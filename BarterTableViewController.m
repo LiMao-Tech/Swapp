@@ -7,6 +7,7 @@
 //
 
 #import "BarterTableViewController.h"
+#import "SWRevealViewController.h"
 #import "CommonImports.h"
 #include "NetworkCheck.h"
 
@@ -22,6 +23,14 @@ NSString *barterDetailXibName = @"BarterDetailViewController";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sideBarButton setTarget: self.revealViewController];
+        [self.sideBarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -61,6 +70,11 @@ NSString *barterDetailXibName = @"BarterDetailViewController";
 
     // Return the number of rows in the section.
     return 5;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [[UIScreen mainScreen] bounds].size.height/4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

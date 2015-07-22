@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SideBarTableViewController : UITableViewController
+@interface SideBarTableViewController : UITableViewController <UITableViewDelegate>
 
 
 @end
