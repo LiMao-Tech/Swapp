@@ -10,6 +10,8 @@
 #import "BarterTableViewCell.h"
 #import "BarterDetailViewController.h"
 
-@interface BarterTableViewController : UITableViewController
+@interface BarterTableViewController : UITableViewController<UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 
 @end

@@ -12,6 +12,9 @@
 
 @interface MainCollectionViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
+
 @property (strong) Reachability * networkManager;
 @property bool isUserWarned;
+
 @end
