@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 @end
 
 @implementation ViewController
@@ -16,7 +17,7 @@
 @synthesize messageText, sendButton, messageList;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if((self) = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
+    if((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])){
         lastId = 0;
         chatParser =NULL;
     }
@@ -29,8 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    messageList.dataSource = self;
-    messageList.delegate = self;
+    self.messageList.dataSource = self;
+    self.messageList.delegate = self;
     [self getNewMessages];
 }
 
@@ -40,7 +41,7 @@
 }
 
 - (void)getNewMessages {
-    NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php"];
+    NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php?past=%d",lastId];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];// arc, autorelease omit
                                     [request setURL:[NSURL URLWithString:url]];
                                     [request setHTTPMethod:@"GET"];
@@ -145,12 +146,13 @@ didReceiveResponse:(NSURLResponse *)response{
 //    NSLog(@"end parse...");
     NSLog(@"messages=%@",messages);
 }
+
 //message display
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)myTableView numberOfRowsInSection:(NSInteger)section{
     return (messages == nil) ? 0 : [messages count];
 }
 
@@ -158,19 +160,20 @@ didReceiveResponse:(NSURLResponse *)response{
     return 75;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)myTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = (UITableViewCell *)[self.messageList dequeueReusableCellWithIdentifier:@"ChatListItem"];
     if(cell == nil){
         NSArray *nib =[[NSBundle mainBundle] loadNibNamed:@"ChatListItem" owner:self options:nil];
         cell = (UITableViewCell *)[nib objectAtIndex:0];
+        NSLog(@"cell init...");
     }
     
     NSDictionary *itemAtIndex = (NSDictionary *)[messages objectAtIndex:indexPath.row];
-    UILabel *textLabel = (UILabel *)[cell viewWithTag:1];
+//    NSLog(@"%@",itemAtIndex);
+    UILabel *textLabel = (UILabel *)[cell.contentView viewWithTag:1];
     textLabel.text = [itemAtIndex objectForKey:@"text"];
-    UILabel *userLabel = (UILabel *)[cell viewWithTag:2];
+    UILabel *userLabel = (UILabel *)[cell.contentView viewWithTag:2];
     userLabel.text = [itemAtIndex objectForKey:@"user"];
-
     return cell;
 }
 //message send function  worked!

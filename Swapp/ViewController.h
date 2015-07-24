@@ -31,9 +31,9 @@
     Boolean inUser;
 }
 //property
-@property (nonatomic,retain) UITextField *messageText;
-@property (nonatomic,retain) UIButton *sendButton;
-@property (nonatomic,retain) UITableView *messageList;
+@property (nonatomic,strong) UITextField *messageText;
+@property (nonatomic,strong) UIButton *sendButton;
+@property (nonatomic,strong) UITableView *messageList;
 //click handler
 - (IBAction)sendClicked:(id)sender;
 
