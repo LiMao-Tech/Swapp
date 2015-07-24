@@ -91,7 +91,7 @@
                                     <rect key="frame" x="16" y="66" width="368" height="526"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="66" width="329" height="726"/>
+                                    <rect key="frame" x="16" y="66" width="329" height="714"/>
                                 </variation>
                             </tableView>
                         </subviews>

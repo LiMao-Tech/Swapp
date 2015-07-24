@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1AD78B2D101079E5A06372B3AC0B6AA67CAA914B</key>
-		<string>https://github.com/LiMao-Tech/Swapp.git</string>
+		<string>ssh://github.com/LiMao-Tech/Swapp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Swapp.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/LiMao-Tech/Swapp.git</string>
+	<string>ssh://github.com/LiMao-Tech/Swapp.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>1AD78B2D101079E5A06372B3AC0B6AA67CAA914B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Swapp</string>
+			<string>Develop</string>
 		</dict>
 	</array>
 </dict>

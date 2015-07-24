@@ -42,6 +42,7 @@
 
 - (void)getNewMessages {
     NSString *url = [NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/messages.php?past=%d",lastId];
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];// arc, autorelease omit
                                     [request setURL:[NSURL URLWithString:url]];
                                     [request setHTTPMethod:@"GET"];
@@ -76,10 +77,10 @@ didReceiveResponse:(NSURLResponse *)response{
     chatParser = [[NSXMLParser alloc] initWithData:receivedData];
     [chatParser setDelegate:self];
     [chatParser parse];
-    NSLog(@"parse over");
-    [messageList reloadData];
-    NSLog(@"reloadData");
+    
+    [self.messageList reloadData];
     //调用对象消息
+    
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
                                 [self methodSignatureForSelector: @selector(timerCallback)]];
     [invocation setTarget:self];
@@ -134,8 +135,10 @@ didReceiveResponse:(NSURLResponse *)response{
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     if([elementName isEqualToString:@"message"]){
         [messages addObject:[NSDictionary dictionaryWithObjectsAndKeys:msgAdded, @"added", msgUser, @"user", msgText, @"text", nil]];
-        
-        lastId = msgId;
+        if (msgId>lastId) {
+            lastId = msgId;
+        }
+        NSLog(@"%d",lastId);
     }
     if ([elementName isEqualToString:@"user"]) {
         inUser = NO;
@@ -144,7 +147,7 @@ didReceiveResponse:(NSURLResponse *)response{
         inText = NO;
     }
 //    NSLog(@"end parse...");
-    NSLog(@"messages=%@",messages);
+//    NSLog(@"messages=%@",messages);
 }
 
 //message display
@@ -176,6 +179,8 @@ didReceiveResponse:(NSURLResponse *)response{
     userLabel.text = [itemAtIndex objectForKey:@"user"];
     return cell;
 }
+
+
 //message send function  worked!
 -(IBAction)sendClicked:(id)sender{
     if ([messageText.text length] > 0) {
