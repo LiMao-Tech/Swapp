@@ -144,7 +144,7 @@ didReceiveResponse:(NSURLResponse *)response{
         inText = NO;
     }
 //    NSLog(@"end parse...");
-    NSLog(@"messages=%@",messages);
+//    NSLog(@"messages=%@",messages);
 }
 
 //message display
