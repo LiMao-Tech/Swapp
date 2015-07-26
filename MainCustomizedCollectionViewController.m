@@ -1,8 +1,8 @@
 //
-//  MainCollectionViewController.m
+//  MainCustomizedCollectionViewController.m
 //  Swapp
 //
-//  Created by Gawain Tsao on 7/9/15.
+//  Created by Yumen Cao on 7/25/15.
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
@@ -10,15 +10,15 @@
 
 #import "AppDelegate.h"
 #import "CommonImports.h"
-#import "MainCollectionViewCell.h"
 #import "NetworkCheck.h"
-
-#import "MainCollectionViewController.h"
-#import "MainCollectionViewFlowLayout.h"
 #import "SWRevealViewController.h"
-#import "CommonImports.h"
 
-@interface MainCollectionViewController ()
+#import "MainCustomizedCollectionViewController.h"
+#import "MainCollectionViewFlowLayout.h"
+#import "MainCollectionViewCell.h"
+
+
+@interface MainCustomizedCollectionViewController ()
 
 @end
 
@@ -27,22 +27,35 @@ NSString *mainCellXibName = @"MainCollectionViewCell";
 
 NSString *hostName = @"http://www.code-desire.com.tw";
 NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/";
-double scale = 2;
 
-
-@implementation MainCollectionViewController
-
-- (void) hello{
-    NSLog(@"Added a button.");
-}
-
+@implementation MainCustomizedCollectionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Creating the collection view with customized layout
+    MainCollectionViewFlowLayout * layout = [[MainCollectionViewFlowLayout alloc] init];
+    layout.minimumInteritemSpacing = 20.f;
+    layout.minimumLineSpacing = 20.f;
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.sectionInset = UIEdgeInsetsMake(10.f, 20.f, 10.f, 20.f);
     
-    // init properties
-    self.cellSelected = -1;
+    // Bigger items for iPad
+    // layout.itemSize = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? CGSizeMake(120, 120) : CGSizeMake(80, 80);
+    
+    // Allocate and configure a collection view
+    UICollectionView * collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.bounces = YES;
+    collectionView.alwaysBounceVertical = YES;
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    self.collectionView = collectionView;
+    
+    // Add to view
+    [self.view addSubview:collectionView];
+    
     
     // setup sidebar menu
     SWRevealViewController *revealViewController = self.revealViewController;
@@ -53,24 +66,7 @@ double scale = 2;
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
-    // add a tool bar
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
-    toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
-    NSMutableArray *items = [[NSMutableArray alloc] init];
     
-    //UIBarButtonItem * newButton = [[UIBarButtonItem alloc] initWithTitle:@"NEW" style:UIBarButtonItemStyleBordered target:toolbar action:@selector(hello)];
-    //[items addObject: newButton];
-    
-    self.itemButton.width = APPDELEGATE.SCREEN_WIDTH/2;
-    self.wishButton.width = APPDELEGATE.SCREEN_WIDTH/2;
-    
-    [items addObject: self.itemButton];
-    [items addObject: self.wishButton];
-    [toolbar setItems:items animated:NO];
-    [self.view addSubview:toolbar];
-    
-    
-    // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     [self setTitle:@"热门"];
     
@@ -89,7 +85,6 @@ double scale = 2;
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar.topItem setTitle: @"热门"];
-    [self setIsUserWarned:false];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,14 +94,14 @@ double scale = 2;
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
 {
@@ -133,7 +128,7 @@ double scale = 2;
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
+    
     return 20;
 }
 
@@ -153,10 +148,10 @@ double scale = 2;
     CGFloat cellWidth;
     CGFloat cellHeight;
     NSLog(@"section: %ld", indexPath.section);
-
+    
     cellWidth = APPDELEGATE.SCREEN_WIDTH /3 - 3;
     cellHeight = APPDELEGATE.SCREEN_WIDTH/3 - 3;
-
+    
     return CGSizeMake(cellWidth, cellHeight);
 }
 
@@ -186,6 +181,7 @@ double scale = 2;
     if(status == NotReachable)
     {
         //No internet
+        /*
         if (!self.isUserWarned) {
             UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"无网络连接"
                                                                message:@"请开启手机信号或连接到WiFi"
@@ -196,6 +192,7 @@ double scale = 2;
             [self setIsUserWarned:true];
             
         }
+         */
         
     }
     else if (status == ReachableViaWiFi)
@@ -205,94 +202,69 @@ double scale = 2;
     }
     else if (status == ReachableViaWWAN)
     {
-
+        
         //3G
         NSLog(@"YES. Reachable by WWAN.");
     }
     
     /*
-    NSString * status = [self.networkManager currentReachabilityString];
-    NSLog(@"%@", status);
-    
-    if ([self.networkManager isReachable]) {
-        NSLog(@"YES. Reachable.");
-    }
-    else {
-        NSLog(@"No. Not Reachable at All.");
-    }
-    
-    if([self.networkManager isReachableViaWiFi]) {
-        NSLog(@"YES. Reachable by WiFi.");
-    }
-    else {
-        NSLog(@"No. Not Reachable by WiFi.");
-    }
-    
-    if([self.networkManager isReachableViaWWAN]) {
-        NSLog(@"YES. Reachable by WWAN.");
-    }
-    else {
-        NSLog(@"No. Not Reachable by WWAN.");
-    }
+     NSString * status = [self.networkManager currentReachabilityString];
+     NSLog(@"%@", status);
+     
+     if ([self.networkManager isReachable]) {
+     NSLog(@"YES. Reachable.");
+     }
+     else {
+     NSLog(@"No. Not Reachable at All.");
+     }
+     
+     if([self.networkManager isReachableViaWiFi]) {
+     NSLog(@"YES. Reachable by WiFi.");
+     }
+     else {
+     NSLog(@"No. Not Reachable by WiFi.");
+     }
+     
+     if([self.networkManager isReachableViaWWAN]) {
+     NSLog(@"YES. Reachable by WWAN.");
+     }
+     else {
+     NSLog(@"No. Not Reachable by WWAN.");
+     }
      */
-
+    
     return cell;
 }
 
 
-
 #pragma mark <UICollectionViewDelegate>
 
-
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+
     
-    if (self.cellSelected == indexPath.row) {
-        self.cellSelected = -1;
-        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            cell.transform = CGAffineTransformMakeScale(1/scale, 1/scale);
-        } completion:^(BOOL finished){
-            
-            }
-        ];
-    }
-    else {
-        self.cellSelected = indexPath.row;
-        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            cell.transform = CGAffineTransformMakeScale(1.6,1.6);
-        } completion:^(BOOL finished){
-            
-        }
-         ];
-    }
 }
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
-}
-*/
+ }
+
 
 // Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+ - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
 	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+ }
+ 
+ - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+ }
+ 
+ - (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 	
-}
-*/
+ }
+
 
 @end

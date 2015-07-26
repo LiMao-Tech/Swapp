@@ -6,8 +6,14 @@
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
+#import "AppDelegate.h"
+#import "CommonImports.h"
+
 #import "BarterTableViewController.h"
+#import "BarterTableViewCell.h"
+#import "BarterDetailViewController.h"
 #import "SWRevealViewController.h"
+
 #import "CommonImports.h"
 #include "NetworkCheck.h"
 
@@ -74,7 +80,7 @@ NSString *barterDetailXibName = @"BarterDetailViewController";
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[UIScreen mainScreen] bounds].size.height/4;
+    return APPDELEGATE.SCREEN_HEIGHT/4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BarterTableViewCell.h"
-#import "BarterDetailViewController.h"
+
+#define APPDELEGATE ((AppDelegate*)[UIApplication sharedApplication].delegate)
 
 @interface BarterTableViewController : UITableViewController<UITableViewDelegate>
 

@@ -1,36 +1,21 @@
 //
-//  SideBarTableViewController.m
+//  NotificationTableViewController.m
 //  Swapp
 //
-//  Created by Yumen Cao on 7/19/15.
+//  Created by Yumen Cao on 7/23/15.
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
-#import "SideBarTableViewController.h"
-#import "SideBarTableViewCell.h"
-
+#import "NotificationTableViewController.h"
 #import "SWRevealViewController.h"
 
-#import "BarterTableViewController.h"
-
-@interface SideBarTableViewController ()
+@interface NotificationTableViewController ()
 
 @end
 
+NSString * notificationTableViewCellIdentifier = @"NotificationCell";
 
-typedef enum menu : NSUInteger {
-    市集 = 0,
-    许愿池 = 1,
-    通知 = 2,
-    我的交换 = 3,
-    我的收藏 = 4,
-    设定 = 5
-} Menu;
-
-
-@implementation SideBarTableViewController {
-    NSArray *menuItems;
-}
+@implementation NotificationTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,10 +25,15 @@ typedef enum menu : NSUInteger {
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    menuItems = @[@"市集", @"许愿池", @"通知", @"我的交换", @"我的收藏", @"设定"];
     
-    // register Xib
-
+    // setup sidebar menu
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sideBarButton setTarget: self.revealViewController];
+        [self.sideBarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,46 +44,23 @@ typedef enum menu : NSUInteger {
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     // Return the number of sections.
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
     // Return the number of rows in the section.
-    return [menuItems count];
-}
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < 2) {
-        return UIScreen.mainScreen.bounds.size.height/6;
-    }
-    else {
-        return UIScreen.mainScreen.bounds.size.height/12;
-    }
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // SideBarTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: sideBarCellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:notificationTableViewCellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    NSString *CellIdentifier = [menuItems objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     return cell;
 }
 
-// tablview delegate
-
-- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //BarterTableViewController *barterTableViewController = [[BarterDetailViewController alloc] initWithNibName:barterDetailXibName bundle:nil];
-    //[self.navigationController pushViewController:barterDetailViewController animated:YES];
-    
-}
 
 /*
 // Override to support conditional editing of the table view.
@@ -129,32 +96,14 @@ typedef enum menu : NSUInteger {
 }
 */
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    // Set the title of navigation bar by using the menu items
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
-    destViewController.title = [[menuItems objectAtIndex:indexPath.row] capitalizedString];
-    
-    
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
-        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
-        
-        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
-            
-            UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
-            [navController setViewControllers: @[dvc] animated: NO ];
-            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        };
-        
-    }
 }
-
+*/
 
 @end

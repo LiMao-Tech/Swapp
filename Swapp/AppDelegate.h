@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NetworkCheck.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong) Reachability * networkManager;
 
+@property CGFloat SCREEN_WIDTH;
+@property CGFloat SCREEN_HEIGHT;
 
 @end
-
