@@ -30,8 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.messageList.dataSource = self;
-    self.messageList.delegate = self;
+    messageList.dataSource = self;
+    messageList.delegate = self;
     [self getNewMessages];
 }
 
@@ -78,7 +78,7 @@ didReceiveResponse:(NSURLResponse *)response{
     [chatParser setDelegate:self];
     [chatParser parse];
     
-    [self.messageList reloadData];
+    [messageList reloadData];
     //调用对象消息
     
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
