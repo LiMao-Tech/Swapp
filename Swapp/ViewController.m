@@ -79,10 +79,16 @@ didReceiveResponse:(NSURLResponse *)response{
     [chatParser parse];
     
     [messageList reloadData];
+    
+    long lastRowNumber = [messageList numberOfRowsInSection:0] - 1;
+    NSIndexPath* ip = [NSIndexPath indexPathForRow:lastRowNumber inSection:0];
+    [messageList scrollToRowAtIndexPath:ip atScrollPosition:UITableViewScrollPositionTop animated:NO];
+    
     //调用对象消息
     
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
                                 [self methodSignatureForSelector: @selector(timerCallback)]];
+    
     [invocation setTarget:self];
     [invocation setSelector: @selector(timerCallback)];
     timer = [NSTimer scheduledTimerWithTimeInterval:5.0 invocation:invocation repeats:NO];
@@ -177,6 +183,7 @@ didReceiveResponse:(NSURLResponse *)response{
     textLabel.text = [itemAtIndex objectForKey:@"text"];
     UILabel *userLabel = (UILabel *)[cell.contentView viewWithTag:2];
     userLabel.text = [itemAtIndex objectForKey:@"user"];
+    
     return cell;
 }
 
