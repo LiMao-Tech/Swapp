@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-<UITableViewDataSource,UITableViewDelegate>{//drive the message display; get called back
+<UITableViewDataSource,UITableViewDelegate,NSXMLParserDelegate>{//drive the message display; get called back
     //UI elements
     IBOutlet UITextField *messageText;
     IBOutlet UIButton *sendButton;
