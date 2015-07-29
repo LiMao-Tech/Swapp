@@ -1,0 +1,430 @@
+//
+//  UploadImageAndVideoViewController.m
+//  Swapp
+//
+//  Created by Yifang Zhang on 7/28/15.
+//  Copyright (c) 2015 Limao. All rights reserved.
+//
+
+#import "UploadImageAndVideoViewController.h"
+
+@interface UploadImageAndVideoViewController ()
+
+@end
+
+static NSString * username = @"13142061115";
+static NSString * password = @"Abcd1234";
+static NSString * client_id = @"1b90441167c89500";
+static NSString * client_secret = @"ed1de4139222e9f8fcc5583771209916";
+static NSString * redirect_url = @"http://www.limao-tech.com/";
+//@"http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/";
+
+
+
+@implementation UploadImageAndVideoViewController
+{
+    
+    NSString *mediaURL;
+    NSString *access_token;
+    //NSString *access_code;
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.accessTokenLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 250, 200, 60)];
+    self.accessTokenLabel.text = @"No Access Code";
+    self.chosenImages = [[NSMutableArray alloc] init];
+    //[self AFNetworkingGetRequest];
+    [self selectPhotoButton];
+    [self selectAccessToken];
+    if (!access_token) {
+        NSLog(@"cant upload video yet");
+    }
+    [self selectVideosButton];
+    
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Interface Related
+
+-(void)selectPhotoButton{
+    
+    UIButton *getmedia_video=[[UIButton alloc]initWithFrame:CGRectMake(40, 100, 100, 30)];
+    [getmedia_video setTitle:@"上传图片" forState:UIControlStateNormal];
+    [getmedia_video setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [getmedia_video.layer setBorderWidth:2];
+    [getmedia_video.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [getmedia_video addTarget:self action:@selector(LocalPhoto) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:getmedia_video];
+    
+}
+
+-(void)selectVideosButton{
+    
+    UIButton *getmedia_video=[[UIButton alloc]initWithFrame:CGRectMake(40, 200, 100, 30)];
+    [getmedia_video setTitle:@"上传视频" forState:UIControlStateNormal];
+    [getmedia_video setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [getmedia_video.layer setBorderWidth:2];
+    [getmedia_video.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [getmedia_video addTarget:self action:@selector(LocalVideos) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:getmedia_video];
+    
+}
+
+-(void)selectAccessToken{
+    
+    UIButton *getmedia_accessToken=[[UIButton alloc]initWithFrame:CGRectMake(40, 150, 100, 30)];
+    [getmedia_accessToken setTitle:@"获取token" forState:UIControlStateNormal];
+    [getmedia_accessToken setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [getmedia_accessToken.layer setBorderWidth:2];
+    [getmedia_accessToken.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [getmedia_accessToken addTarget:self action:@selector(createWebView) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:getmedia_accessToken];
+    
+}
+
+#pragma mark - Image Related
+
+- (void) LocalPhoto{
+    
+    ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+    
+    elcPicker.maximumImagesCount = 3; //Set the maximum number of images to select to 100
+    elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
+    elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+    elcPicker.onOrder = YES; //For multiple image selection, display and return order of selected images
+    elcPicker.mediaTypes = @[(NSString *)kUTTypeImage]; //Supports image
+    //and movie types -- (NSString *)kUTTypeMovie
+    
+    elcPicker.imagePickerDelegate = self;
+    
+    [self presentViewController:elcPicker animated:YES completion:nil];
+    
+}
+
+#pragma mark ELCImagePickerDelegate Methods
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
+{
+    
+    
+    for (NSDictionary * tempDict in info) {
+        if ([tempDict objectForKey:UIImagePickerControllerOriginalImage]){
+            UIImage* tempImg = [tempDict objectForKey:UIImagePickerControllerOriginalImage];
+            NSData *dataImage = UIImageJPEGRepresentation(tempImg, 1);
+            [self.chosenImages addObject:dataImage];
+            NSLog(@"one photo is reconstructed");
+        }
+        else{
+            NSLog(@"this is not an image");
+        }
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self postImages];
+    
+    
+}
+
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+#pragma mark AFNetworking Upload Images
+
+- (void)postImages {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //上传的字典
+    //NSDictionary *parameters = @{@"orderno":@"1419486171570"};
+    //上传的本地路径
+    //NSURL *filePath = [NSURL fileURLWithPath:_imgPath];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    //上传的网上路径
+    [manager POST:@"http://www.code-desire.com.tw/LiMao/upload/Yifang/testUpload.php" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //上传图片的本地路径和上传图片的文件名
+        //NSInteger * counter = 0;
+        for (NSData *imageData in self.chosenImages) {
+            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"image%ld", (long)self.counter] fileName:[NSString stringWithFormat:@"image%ld.jpg", (long)self.counter] mimeType:@"image/jpeg"];
+            self.counter = self.counter + 1;
+            NSLog(@"image%ld.jpg is going to be uploaded", (long)self.counter);
+        }
+        //[formData appendPartWithFileURL:filePath name:@"rpf" error:nil];
+        // NSLog(@"%@",filePath);
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
+        //NSString *message = responseObject[@"message"];
+        //NSLog(@"message:%@",message);
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Message" message:@"successfully upload" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+        //self.chosenImages = [[NSMutableArray alloc] init];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Message" message:@"failed to upload" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+        //self.chosenImages = [[NSMutableArray alloc] init];
+    }];
+    
+}
+/*
+ - (void)AFNetworkingGetRequest{
+ NSLog(@"haha in");
+ AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+ //NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
+ manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+ manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+ NSDictionary * params = @{ @"client_id": client_id, @"response_type": @"code", @"redirect_uri": redirect_url, @"state": @"yifang"};
+ [manager GET:@"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+ //NSString * respondStr = [responseObject objectAtIndex:0];
+ NSLog(@"responseObject: %@", responseObject);
+ NSString * html = operation.description;
+ NSLog(@"html: %@", html);
+ 
+ } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+ NSLog(@"Error: %@", error);
+ }];
+ 
+ }
+ */
+/*
+ - (void)AFNetworkingPostToGetAccessToken{
+ NSLog(@"haha in");
+ AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+ //NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
+ manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+ manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+ NSDictionary * params = @{ @"client_id": client_id, @"client_secret": client_secret, @"authorization_code": @"grant_type", @"redirect_uri": redirect_url, @"state": @"yifang"};
+ [manager POST:@"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+ //NSString * respondStr = [responseObject objectAtIndex:0];
+ NSLog(@"responseObject: %@", responseObject);
+ 
+ } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+ NSLog(@"Error: %@", error);
+ }];
+ 
+ 
+ // [params setObject:client_id forKey:@"client_id"];
+ // [params setObject:client_secret forKey:@"client_secret"];
+ // [params setObject:@"authorization_code" forKey:@"grant_type"];
+ // [params setObject:code forKey:@"code"];
+ // [params setObject:@"http://www.baidu.com" forKey:@"redirect_uri"];
+ 
+ }*/
+
+#pragma mark - Videos Related
+
+//打开本地相册获取视频
+-(void)LocalVideos
+
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+//本地相册选择视频之后触发
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    //获取媒体类型
+    NSString* mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    //判断是否视频文件
+    if ([mediaType isEqualToString:(NSString *)kUTTypeMovie])
+    {
+        //获取视频文件的url
+        NSURL *mediaUrltmp = [info objectForKey:UIImagePickerControllerMediaURL];
+        mediaURL=[mediaUrltmp absoluteString];
+        mediaURL=[mediaURL substringFromIndex:7];
+        
+        UIAlertView *loadorwatch=[[UIAlertView alloc]initWithTitle:@"同时" message:@"请问是想观看还是想上传" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"上传", nil];
+        [loadorwatch show];
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    //[self.navigationController dismissModalViewControllerAnimated:YES];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    //上传
+    if (buttonIndex==1)
+    {
+        [self uploadYoukuVideos];
+    }
+}
+
+#pragma mark Getting Access Token from WebView
+//TODO: changed the url
+-(void) createWebView{
+    
+    NSString * requestingURL = @"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=token&redirect_uri=http://www.limao-tech.com/&state=yifang";
+    
+    UIView *mainview=[[UIView alloc]initWithFrame:CGRectMake(0, 50,[UIScreen mainScreen].currentMode.size.width/2, [UIScreen mainScreen].currentMode.size.height)];
+    mainview.tag=1001;
+    
+    UIWebView *myWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 35, [UIScreen mainScreen].currentMode.size.width/2-10, [UIScreen mainScreen].currentMode.size.height/2-140)];
+    myWebView.delegate=self;
+    [myWebView setScalesPageToFit:NO];
+    
+    [mainview addSubview:myWebView];
+    
+    UIButton *cancelbutton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].currentMode.size.width/2, 30)];
+    [cancelbutton setTitle:@"退出" forState:UIControlStateNormal];
+    [cancelbutton setBackgroundColor:[UIColor redColor]];
+    [cancelbutton addTarget:self action:@selector(returnToMainScreenFromWebView) forControlEvents:UIControlEventTouchDown];
+    [mainview addSubview:cancelbutton];
+    
+    [myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:requestingURL]]];
+    
+    [self.view addSubview:mainview];
+    
+    
+}
+
+//webview加载失败
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [[self.view viewWithTag:1001]removeFromSuperview];
+    //NSLog(@"failed on webviewer");
+}
+
+
+//webview开始加载
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"url:%@",[request.URL absoluteString]);
+    NSString *urlstr=[request.URL absoluteString];
+    NSRange startrange=[urlstr rangeOfString:@"/#access_token="];
+    NSRange endrange=[urlstr rangeOfString:@"&state"];
+    NSRange denied=[urlstr rangeOfString:@"denied"];
+    
+    //判断是否是授权链接，根据跳转链接获取code
+    if (startrange.length>0 && endrange.length>0) {
+        NSString *codetmp=[urlstr substringWithRange:NSMakeRange(startrange.length+startrange.location, endrange.location-startrange.length-startrange.location)];
+        NSLog(@"yeah,i get code:%@",codetmp);
+        access_token = codetmp.length>0?codetmp:access_token;
+        [[self.view viewWithTag:1001]removeFromSuperview];
+        
+        if (access_token.length>0) {
+            //根据code获取access_token
+            //[self AFNetworkingPostToGetAccessToken];
+            NSLog(@"access code is: %@", access_token);
+            self.accessTokenLabel.text = access_token;
+        }
+        
+        return NO;
+    }
+    
+    if (denied.length>0) {
+        return NO;
+    }
+    
+    return  YES;
+}
+
+//退出access_token webview
+-(void)returnToMainScreenFromWebView{
+    [[self.view viewWithTag:1001]removeFromSuperview];
+}
+
+
+
+#pragma mark Upload to Youku function
+
+-(void) uploadYoukuVideos{
+    
+    //access_token = @"783407f4ab60d5e45c40099515ea35ae";
+    
+    NSMutableDictionary *params =[[NSMutableDictionary alloc]init];
+    [params setObject:client_id forKey:@"client_id"];
+    [params setObject:access_token forKey:@"access_token"];
+    //优酷账号
+    [params setObject:username forKey:@"username"];
+    //优酷密码
+    [params setObject:password forKey:@"password"];
+    
+    
+    NSMutableDictionary *upload_info_params=[[NSMutableDictionary alloc]init];
+    //视频标题
+    [upload_info_params setObject:@"testName2" forKey:@"title"];
+    //视频标签
+    [upload_info_params setObject:@"tags2" forKey:@"tags"];
+    //视频本地路径
+    [upload_info_params setObject:mediaURL forKey:@"file_name"];
+    //视频md5值，经实践，sdk会自己算，所以这里随便传值即可
+    [upload_info_params setObject:@"file_md5" forKey:@"file_md5"];
+    //视频大小，经实践，sdk会自己算，所以这里随便传值即可
+    [upload_info_params setObject:@"file_size" forKey:@"file_size"];
+    
+    [[YoukuUploader sharedInstance] setClientID:client_id andClientSecret:client_secret];
+    
+    [[YoukuUploader sharedInstance]upload:params uploadInfo:upload_info_params uploadDelegate:self  dispatchQueue:Nil];
+    
+    
+}
+
+#pragma mark Youku new Delegate Methods
+
+- (void) onStart{
+    NSLog(@"on start");
+}
+
+//更新进度条
+- (void) onProgressUpdate:(int)progress{
+    
+    NSLog(@"%d%%",progress);
+    
+    //NSLog(@"aaa");
+}
+
+
+//上传成功
+- (void) onSuccess:(NSString*)vid
+{
+    [self alert:[NSString stringWithFormat:@"upload success,the video id : %@",vid] withtitle:@"now"];
+}
+
+
+//上传失败
+- (void) onFailure:(NSDictionary*)response
+{
+    [self alert:[NSString stringWithFormat:@"type:%@,desc:%@,code:%@",[response valueForKey:@"type"],[response valueForKey:@"desc"],[response valueForKey:@"code"]] withtitle:@"failed"];
+}
+
+#pragma mark - Additional Helper Functions
+
+-(void)alert:(NSString *)contents withtitle:(NSString *)title
+{
+    UIAlertView *alerta=[[UIAlertView alloc]initWithTitle:title message:contents delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alerta show];
+}
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

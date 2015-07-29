@@ -63,6 +63,8 @@
 		16F00CB31B6875F800ACCA88 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F00C9A1B6875F800ACCA88 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16F00CB51B6876CE00ACCA88 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F00CB41B6876CE00ACCA88 /* libz.dylib */; };
 		16F00CB71B6876DB00ACCA88 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F00CB61B6876DB00ACCA88 /* libxml2.2.dylib */; };
+		16F00CBB1B6881E800ACCA88 /* UploadImageAndVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16F00CB91B6881E800ACCA88 /* UploadImageAndVideoViewController.m */; };
+		16F00CBC1B6881E800ACCA88 /* UploadImageAndVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16F00CBA1B6881E800ACCA88 /* UploadImageAndVideoViewController.xib */; };
 		16FF05CE1B58A8D200E6FE17 /* SwappCertification.zip in Resources */ = {isa = PBXBuildFile; fileRef = 16FF05CD1B58A8D200E6FE17 /* SwappCertification.zip */; };
 		16FF05D11B58A9A200E6FE17 /* CertificationREADME.txt in Resources */ = {isa = PBXBuildFile; fileRef = 16FF05D01B58A9A200E6FE17 /* CertificationREADME.txt */; };
 		C4023BC21B51F3E100CC5A45 /* BarterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4023BC01B51F3E100CC5A45 /* BarterTableViewCell.m */; };
@@ -80,7 +82,6 @@
 		C4328E201B652A7700247B17 /* LMCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4328E1F1B652A7700247B17 /* LMCollectionViewLayout.m */; };
 		C4328E231B652C4E00247B17 /* LMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4328E221B652C4E00247B17 /* LMCollectionViewController.m */; };
 		C4B016191B567E0600EA4F92 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */; };
-		C4DBBC901B54C07C00E62818 /* NetworkCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */; };
 		DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB979251B4CC9B100314A35 /* BarterTableViewController.m */; };
 		DAC619EF1B4B71540078F737 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619EE1B4B71540078F737 /* main.m */; };
 		DAC619F21B4B71540078F737 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC619F11B4B71540078F737 /* AppDelegate.m */; };
@@ -218,6 +219,9 @@
 		16F00C9A1B6875F800ACCA88 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		16F00CB41B6876CE00ACCA88 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		16F00CB61B6876DB00ACCA88 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		16F00CB81B6881E800ACCA88 /* UploadImageAndVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageAndVideoViewController.h; sourceTree = "<group>"; };
+		16F00CB91B6881E800ACCA88 /* UploadImageAndVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageAndVideoViewController.m; sourceTree = "<group>"; };
+		16F00CBA1B6881E800ACCA88 /* UploadImageAndVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadImageAndVideoViewController.xib; sourceTree = "<group>"; };
 		16FF05CD1B58A8D200E6FE17 /* SwappCertification.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SwappCertification.zip; sourceTree = "<group>"; };
 		16FF05D01B58A9A200E6FE17 /* CertificationREADME.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CertificationREADME.txt; sourceTree = "<group>"; };
 		C4023BBF1B51F3E100CC5A45 /* BarterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewCell.h; sourceTree = "<group>"; };
@@ -246,8 +250,6 @@
 		C4328E211B652C4E00247B17 /* LMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionViewController.h; sourceTree = "<group>"; };
 		C4328E221B652C4E00247B17 /* LMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewController.m; sourceTree = "<group>"; };
 		C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCheck.m; sourceTree = "<group>"; };
-		C4DBBC911B54C09800E62818 /* NetworkCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCheck.h; sourceTree = "<group>"; };
 		DAB979241B4CC9B100314A35 /* BarterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarterTableViewController.h; sourceTree = "<group>"; };
 		DAB979251B4CC9B100314A35 /* BarterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarterTableViewController.m; sourceTree = "<group>"; };
 		DAC619E91B4B71540078F737 /* Swapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +293,9 @@
 				16F00C3F1B68750E00ACCA88 /* UIKit+AFNetworking */,
 				16F00C221B6874FB00ACCA88 /* AFNetworking */,
 				16F00BFE1B6874E500ACCA88 /* ELCImagePicker */,
+				16F00CB81B6881E800ACCA88 /* UploadImageAndVideoViewController.h */,
+				16F00CB91B6881E800ACCA88 /* UploadImageAndVideoViewController.m */,
+				16F00CBA1B6881E800ACCA88 /* UploadImageAndVideoViewController.xib */,
 			);
 			name = UploadImageAndVideo;
 			sourceTree = "<group>";
@@ -565,15 +570,6 @@
 			name = MainPageLayout;
 			sourceTree = "<group>";
 		};
-		C4DBBC8E1B54BFA500E62818 /* NetworkReliability */ = {
-			isa = PBXGroup;
-			children = (
-				C4DBBC911B54C09800E62818 /* NetworkCheck.h */,
-				C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */,
-			);
-			name = NetworkReliability;
-			sourceTree = "<group>";
-		};
 		DAB979231B4CC76000314A35 /* BarterTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,7 +595,6 @@
 				DAB979231B4CC76000314A35 /* BarterTable */,
 				C40B3BB91B5C67A500D674CB /* SideBar */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
-				C4DBBC8E1B54BFA500E62818 /* NetworkReliability */,
 				C40B3BB81B5C469500D674CB /* Frameworks */,
 				DAC61A051B4B71540078F737 /* SwappTests */,
 				DAC619EA1B4B71540078F737 /* Products */,
@@ -765,6 +760,7 @@
 				16F00C1F1B6874E500ACCA88 /* ELCAssetTablePicker.xib in Resources */,
 				C4023BC81B51F40F00CC5A45 /* MainCollectionViewCell.xib in Resources */,
 				C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */,
+				16F00CBC1B6881E800ACCA88 /* UploadImageAndVideoViewController.xib in Resources */,
 				C42505071B52C4D700231183 /* BarterDetailViewController.xib in Resources */,
 				16F00C201B6874E500ACCA88 /* Overlay.png in Resources */,
 				16FF05D11B58A9A200E6FE17 /* CertificationREADME.txt in Resources */,
@@ -792,6 +788,7 @@
 				16F00C1C1B6874E500ACCA88 /* ELCOverlayImageView.m in Sources */,
 				16F00CB21B6875F800ACCA88 /* JSONKit.m in Sources */,
 				16F00C181B6874E500ACCA88 /* ELCAssetCell.m in Sources */,
+				16F00CBB1B6881E800ACCA88 /* UploadImageAndVideoViewController.m in Sources */,
 				16F00CB11B6875F800ACCA88 /* ASIS3ServiceRequest.m in Sources */,
 				16F00C561B68750E00ACCA88 /* UIProgressView+AFNetworking.m in Sources */,
 				16F00C1B1B6874E500ACCA88 /* ELCImagePickerController.m in Sources */,
@@ -833,7 +830,6 @@
 				16F00C551B68750E00ACCA88 /* UIImageView+AFNetworking.m in Sources */,
 				DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */,
 				16F00CA21B6875F800ACCA88 /* ASIInputStream.m in Sources */,
-				C4DBBC901B54C07C00E62818 /* NetworkCheck.m in Sources */,
 				16F00CAF1B6875F800ACCA88 /* ASIS3ObjectRequest.m in Sources */,
 				C42505061B52C4D700231183 /* BarterDetailViewController.m in Sources */,
 				16F00C3A1B6874FB00ACCA88 /* AFSecurityPolicy.m in Sources */,

@@ -15,7 +15,7 @@
 #import "SWRevealViewController.h"
 
 #import "CommonImports.h"
-#include "NetworkCheck.h"
+#include "Reachability.h"
 
 @interface BarterTableViewController ()
 
