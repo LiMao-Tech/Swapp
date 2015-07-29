@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BarterTableViewCell.h"
-#import "BarterDetailViewController.h"
 
-@interface BarterTableViewController : UITableViewController
+#define APPDELEGATE ((AppDelegate*)[UIApplication sharedApplication].delegate)
+
+@interface BarterTableViewController : UITableViewController<UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 
 @end

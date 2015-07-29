@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainCollectionViewCell.h"
-#include "NetworkCheck.h"
+
+#define APPDELEGATE ((AppDelegate*)[UIApplication sharedApplication].delegate)
 
 @interface MainCollectionViewController : UICollectionViewController<UICollectionViewDelegateFlowLayout>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *itemButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *wishButton;
+
 @property (strong) Reachability * networkManager;
 @property bool isUserWarned;
+@property NSInteger cellSelected;
+
 @end

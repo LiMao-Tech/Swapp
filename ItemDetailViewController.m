@@ -1,22 +1,22 @@
 //
-//  MainTabBarController.m
+//  ItemDetailViewController.m
 //  Swapp
 //
-//  Created by Gawain Tsao on 7/7/15.
+//  Created by Yumen Cao on 7/22/15.
 //  Copyright (c) 2015 Limao. All rights reserved.
 //
 
-#import "MainTabBarController.h"
+#import "ItemDetailViewController.h"
 
-@interface MainTabBarController ()
+@interface ItemDetailViewController ()
 
 @end
 
-@implementation MainTabBarController
+@implementation ItemDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

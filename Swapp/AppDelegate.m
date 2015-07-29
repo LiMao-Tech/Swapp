@@ -36,9 +36,16 @@
     }
 #endif
     
+    // get screen size
+    self.SCREEN_WIDTH = UIScreen.mainScreen.bounds.size.width;
+    self.SCREEN_HEIGHT = UIScreen.mainScreen.bounds.size.height;
+    
     /* remote notification setting ends */
     
-    // set up network checking 
+    // set up network checking
+    
+    
+
     
     return YES;
 }
@@ -69,7 +76,7 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     
-    NSLog(@"My token is: %@", deviceToken);
+    // NSLog(@"My token is: %@", deviceToken);
     
     NSString *device = [deviceToken description];
     device = [device stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
@@ -82,7 +89,7 @@
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
-    NSLog(@"Failed to get token, error: %@", error);
+    // NSLog(@"Failed to get token, error: %@", error);
 }
 
 #pragma mark push notification for ios 8
