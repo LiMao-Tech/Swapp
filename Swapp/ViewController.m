@@ -191,6 +191,7 @@ didReceiveResponse:(NSURLResponse *)response{
 //message send function  worked!
 -(IBAction)sendClicked:(id)sender{
     if ([messageText.text length] > 0) {
+        sendButton.enabled = NO;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         NSString *url =[NSString stringWithFormat:@"http://www.code-desire.com.tw/LiMao/Upload/Tuantuan/add.php"];
@@ -208,6 +209,7 @@ didReceiveResponse:(NSURLResponse *)response{
         NSError *error = [[NSError alloc]init];
         [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         [self getNewMessages];
+        sendButton.enabled = YES;
     }
     
     messageText.text = @"";
