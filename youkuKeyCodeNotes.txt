@@ -1,0 +1,211 @@
+
+#pragma mark Getting Access Token from WebView
+//TODO: changed the url
+-(void) createWebView{
+
+NSString * requestingURL = @"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.limao-tech.com/&state=yifang";
+
+UIView *mainview=[[UIView alloc]initWithFrame:CGRectMake(0, 50,[UIScreen mainScreen].currentMode.size.width/2, [UIScreen mainScreen].currentMode.size.height)];
+mainview.tag=1001;
+
+UIWebView *myWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 35, [UIScreen mainScreen].currentMode.size.width/2-10, [UIScreen mainScreen].currentMode.size.height/2-140)];
+myWebView.delegate=self;
+[myWebView setScalesPageToFit:NO];
+
+[mainview addSubview:myWebView];
+
+UIButton *cancelbutton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].currentMode.size.width/2, 30)];
+[cancelbutton setTitle:@"退出" forState:UIControlStateNormal];
+[cancelbutton setBackgroundColor:[UIColor redColor]];
+[cancelbutton addTarget:self action:@selector(returnToMainScreenFromWebView) forControlEvents:UIControlEventTouchDown];
+[mainview addSubview:cancelbutton];
+
+[myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:requestingURL]]];
+
+[self.view addSubview:mainview];
+
+
+}
+
+//webview加载失败
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+[[self.view viewWithTag:1001]removeFromSuperview];
+//NSLog(@"failed on webviewer");
+}
+
+
+//webview开始加载
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+NSLog(@"url:%@",[request.URL absoluteString]);
+NSString *urlstr=[request.URL absoluteString];
+NSRange startrange=[urlstr rangeOfString:@"/?code="];
+NSLog(@"starting range: %ld", startrange.length);
+NSRange endrange=[urlstr rangeOfString:@"&state"];
+NSLog(@"ending range: %ld", endrange.length);
+NSRange denied=[urlstr rangeOfString:@"denied"];
+
+//判断是否是授权链接，根据跳转链接获取code
+if (startrange.length>0 && endrange.length>0) {
+NSString *codetmp=[urlstr substringWithRange:NSMakeRange(startrange.length+startrange.location, endrange.location-startrange.length-startrange.location)];
+NSLog(@"yeah,i get code:%@",codetmp);
+NSString * code = codetmp.length>0?codetmp:code;
+[[self.view viewWithTag:1001]removeFromSuperview];
+
+if (access_token.length>0) {
+//根据code获取access_token
+//[self AFNetworkingPostToGetAccessToken];
+NSLog(@"access code is: %@", code);
+accessTokenLabel.text = code;
+myCode = code;
+
+[self gettingAccessTokenAndRefreshToken];
+
+}
+
+return NO;
+}
+
+if (denied.length>0) {
+return NO;
+}
+
+return  YES;
+}
+
+-(void)gettingAccessTokenAndRefreshToken{
+
+//AFHTTPRequestOperationManager
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
+manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//[manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//[manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+manager.responseSerializer = [AFJSONResponseSerializer serializer];
+NSDictionary * params = @{
+@"client_id": client_id,
+@"client_secret": client_secret,
+@"grant_type": @"authorization_code",
+@"code": myCode,
+@"redirect_uri": redirect_url,
+};
+NSLog(@"parameters: %@", params);
+
+
+// @"http://www.code-desire.com.tw/LiMao/upload/Yifang/POSTtester.php"
+[manager POST: @"https://openapi.youku.com/v2/oauth2/token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//NSString * respondStr = [responseObject objectAtIndex:0];
+NSLog(@"responseObject: %@", responseObject);
+access_token = [responseObject objectForKey:@"access_token"];
+refresh_token = [responseObject objectForKey:@"refresh_token"];
+
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+NSLog(@"Error: %@", error);
+//NSLog(@"ops %@", operation);
+/*NSData *errorData = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
+NSString *str = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
+NSLog(@"error data: %@", str);*/
+
+}];
+
+
+}
+
+//退出access_token webview
+-(void)returnToMainScreenFromWebView{
+[[self.view viewWithTag:1001]removeFromSuperview];
+}
+
+#pragma mark refresh token
+
+-(NSString *)refreshToken: (NSString *)oldAccessToken{
+
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
+manager.requestSerializer = [AFJSONRequestSerializer serializer];
+[manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+//manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+
+NSDictionary * params = @{
+@"client_id": client_id,
+@"client_secret": client_secret,
+@"grant_type": @"refresh_token",
+@"refresh_token": oldAccessToken
+};
+
+[manager POST:@"https://openapi.youku.com/v2/oauth2/token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//NSString * respondStr = [responseObject objectAtIndex:0];
+NSLog(@"responseObject: %@", responseObject);
+
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+NSLog(@"Error: %@", error);
+
+}];
+
+
+
+return nil;
+
+}
+
+/*
+- (void)AFNetworkingGetRequest{
+NSLog(@"haha in");
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
+manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+NSDictionary * params = @{ @"client_id": client_id, @"response_type": @"code", @"redirect_uri": redirect_url, @"state": @"yifang"};
+[manager GET:@"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//NSString * respondStr = [responseObject objectAtIndex:0];
+NSLog(@"responseObject: %@", responseObject);
+NSString * html = operation.description;
+NSLog(@"html: %@", html);
+
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+NSLog(@"Error: %@", error);
+}];
+
+}
+*/
+/*
+- (void)AFNetworkingPostToGetAccessToken{
+NSLog(@"haha in");
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
+manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+NSDictionary * params = @{ @"client_id": client_id, @"client_secret": client_secret, @"authorization_code": @"grant_type", @"redirect_uri": redirect_url, @"state": @"yifang"};
+[manager POST:@"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//NSString * respondStr = [responseObject objectAtIndex:0];
+NSLog(@"responseObject: %@", responseObject);
+
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+NSLog(@"Error: %@", error);
+}];
+
+
+// [params setObject:client_id forKey:@"client_id"];
+// [params setObject:client_secret forKey:@"client_secret"];
+// [params setObject:@"authorization_code" forKey:@"grant_type"];
+// [params setObject:code forKey:@"code"];
+// [params setObject:@"http://www.baidu.com" forKey:@"redirect_uri"];
+
+}*/
+
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+
+//上传
+if (buttonIndex==1)
+{
+[self uploadYoukuVideos];
+}
+}
+
+

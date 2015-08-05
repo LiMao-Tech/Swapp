@@ -14,9 +14,10 @@
 
 @interface UploadImageAndVideoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, YoukuUploaderDelegate, UIWebViewDelegate, ELCImagePickerControllerDelegate>
 
-@property UILabel *accessTokenLabel;
+
 @property NSMutableArray *chosenImages;
 @property NSInteger counter;
+
 
 
 //更新进度

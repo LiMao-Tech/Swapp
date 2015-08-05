@@ -26,18 +26,36 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
     
     NSString *mediaURL;
     NSString *access_token;
-    //NSString *access_code;
+    UILabel * accessTokenLabel;
+    UIProgressView * progressBar;
+    //NSString * myCode;
+    //NSString * refresh_token;
     
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.accessTokenLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 250, 200, 60)];
-    self.accessTokenLabel.text = @"No Access Code";
+    //access_token = @"783407f4ab60d5e45c40099515ea35ae";
+    
+    //get access token label
+    accessTokenLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 250, 200, 60)];
+    accessTokenLabel.numberOfLines = 2;
+    accessTokenLabel.text = @"No Access Code";
+    [self.view addSubview:accessTokenLabel];
+    
+    //get progress bar
+    progressBar = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    progressBar.frame = CGRectMake(40, 300, 200, 60);
+    progressBar.progress = 0.0f;
+    progressBar.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:progressBar];
+    
+    //[self selectAccessToken];
+    [self getAccessToken];
+    
     self.chosenImages = [[NSMutableArray alloc] init];
-    //[self AFNetworkingGetRequest];
     [self selectPhotoButton];
-    [self selectAccessToken];
+    
     if (!access_token) {
         NSLog(@"cant upload video yet");
     }
@@ -67,7 +85,7 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 
 -(void)selectVideosButton{
     
-    UIButton *getmedia_video=[[UIButton alloc]initWithFrame:CGRectMake(40, 200, 100, 30)];
+    UIButton *getmedia_video=[[UIButton alloc]initWithFrame:CGRectMake(40, 150, 100, 30)];
     [getmedia_video setTitle:@"上传视频" forState:UIControlStateNormal];
     [getmedia_video setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [getmedia_video.layer setBorderWidth:2];
@@ -77,17 +95,17 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
     
 }
 
--(void)selectAccessToken{
+/*-(void)selectAccessToken{
     
-    UIButton *getmedia_accessToken=[[UIButton alloc]initWithFrame:CGRectMake(40, 150, 100, 30)];
+    UIButton *getmedia_accessToken=[[UIButton alloc]initWithFrame:CGRectMake(40, 200, 100, 30)];
     [getmedia_accessToken setTitle:@"获取token" forState:UIControlStateNormal];
     [getmedia_accessToken setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [getmedia_accessToken.layer setBorderWidth:2];
     [getmedia_accessToken.layer setBorderColor:[[UIColor redColor] CGColor]];
-    [getmedia_accessToken addTarget:self action:@selector(createWebView) forControlEvents:UIControlEventTouchDown];
+    [getmedia_accessToken addTarget:self action:@selector(getAccessToken) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:getmedia_accessToken];
     
-}
+}*/
 
 #pragma mark - Image Related
 
@@ -168,59 +186,16 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
         //NSLog(@"message:%@",message);
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Message" message:@"successfully upload" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
-        //self.chosenImages = [[NSMutableArray alloc] init];
+        self.chosenImages = [[NSMutableArray alloc] init];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Message" message:@"failed to upload" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alertView show];
-        //self.chosenImages = [[NSMutableArray alloc] init];
+        self.chosenImages = [[NSMutableArray alloc] init];
     }];
     
 }
-/*
- - (void)AFNetworkingGetRequest{
- NSLog(@"haha in");
- AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
- //NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
- manager.responseSerializer = [AFHTTPResponseSerializer serializer];
- manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
- NSDictionary * params = @{ @"client_id": client_id, @"response_type": @"code", @"redirect_uri": redirect_url, @"state": @"yifang"};
- [manager GET:@"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
- //NSString * respondStr = [responseObject objectAtIndex:0];
- NSLog(@"responseObject: %@", responseObject);
- NSString * html = operation.description;
- NSLog(@"html: %@", html);
- 
- } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
- NSLog(@"Error: %@", error);
- }];
- 
- }
- */
-/*
- - (void)AFNetworkingPostToGetAccessToken{
- NSLog(@"haha in");
- AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
- //NSString * additional = @"?client_id=10000&response_type=code&redirect_uri=http%3A%2F%2Fclient.example.com%2Fcb&state=xyz"
- manager.responseSerializer = [AFHTTPResponseSerializer serializer];
- manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
- NSDictionary * params = @{ @"client_id": client_id, @"client_secret": client_secret, @"authorization_code": @"grant_type", @"redirect_uri": redirect_url, @"state": @"yifang"};
- [manager POST:@"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=code&redirect_uri=http://www.code-desire.com.tw/joe/YoukuUpload/OAuth/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
- //NSString * respondStr = [responseObject objectAtIndex:0];
- NSLog(@"responseObject: %@", responseObject);
- 
- } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
- NSLog(@"Error: %@", error);
- }];
- 
- 
- // [params setObject:client_id forKey:@"client_id"];
- // [params setObject:client_secret forKey:@"client_secret"];
- // [params setObject:@"authorization_code" forKey:@"grant_type"];
- // [params setObject:code forKey:@"code"];
- // [params setObject:@"http://www.baidu.com" forKey:@"redirect_uri"];
- 
- }*/
+
 
 #pragma mark - Videos Related
 
@@ -247,8 +222,10 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
         mediaURL=[mediaUrltmp absoluteString];
         mediaURL=[mediaURL substringFromIndex:7];
         
-        UIAlertView *loadorwatch=[[UIAlertView alloc]initWithTitle:@"同时" message:@"请问是想观看还是想上传" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"上传", nil];
-        [loadorwatch show];
+        [self uploadYoukuVideos];
+        
+        //UIAlertView *loadorwatch=[[UIAlertView alloc]initWithTitle:@"同时" message:@"请问是想观看还是想上传" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"上传", nil];
+        //[loadorwatch show];
     }
     [picker dismissViewControllerAnimated:YES completion:nil];
     
@@ -260,6 +237,7 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+/*
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -269,88 +247,52 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
         [self uploadYoukuVideos];
     }
 }
+*/
 
-#pragma mark Getting Access Token from WebView
-//TODO: changed the url
--(void) createWebView{
-    
-    NSString * requestingURL = @"https://openapi.youku.com/v2/oauth2/authorize?client_id=1b90441167c89500&response_type=token&redirect_uri=http://www.limao-tech.com/&state=yifang";
-    
-    UIView *mainview=[[UIView alloc]initWithFrame:CGRectMake(0, 50,[UIScreen mainScreen].currentMode.size.width/2, [UIScreen mainScreen].currentMode.size.height)];
-    mainview.tag=1001;
-    
-    UIWebView *myWebView=[[UIWebView alloc]initWithFrame:CGRectMake(0, 35, [UIScreen mainScreen].currentMode.size.width/2-10, [UIScreen mainScreen].currentMode.size.height/2-140)];
-    myWebView.delegate=self;
-    [myWebView setScalesPageToFit:NO];
-    
-    [mainview addSubview:myWebView];
-    
-    UIButton *cancelbutton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].currentMode.size.width/2, 30)];
-    [cancelbutton setTitle:@"退出" forState:UIControlStateNormal];
-    [cancelbutton setBackgroundColor:[UIColor redColor]];
-    [cancelbutton addTarget:self action:@selector(returnToMainScreenFromWebView) forControlEvents:UIControlEventTouchDown];
-    [mainview addSubview:cancelbutton];
-    
-    [myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:requestingURL]]];
-    
-    [self.view addSubview:mainview];
-    
-    
-}
+#pragma mark Upload to Youku function TODO: Warning for JSON Parsing
 
-//webview加载失败
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
-{
-    [[self.view viewWithTag:1001]removeFromSuperview];
-    //NSLog(@"failed on webviewer");
-}
+-(void) getAccessToken{
 
-
-//webview开始加载
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    NSLog(@"url:%@",[request.URL absoluteString]);
-    NSString *urlstr=[request.URL absoluteString];
-    NSRange startrange=[urlstr rangeOfString:@"/#access_token="];
-    NSRange endrange=[urlstr rangeOfString:@"&state"];
-    NSRange denied=[urlstr rangeOfString:@"denied"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    //判断是否是授权链接，根据跳转链接获取code
-    if (startrange.length>0 && endrange.length>0) {
-        NSString *codetmp=[urlstr substringWithRange:NSMakeRange(startrange.length+startrange.location, endrange.location-startrange.length-startrange.location)];
-        NSLog(@"yeah,i get code:%@",codetmp);
-        access_token = codetmp.length>0?codetmp:access_token;
-        [[self.view viewWithTag:1001]removeFromSuperview];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    /*NSDictionary * params =@{
+                             @"client_id": client_id,
+                             @"client_secret": client_secret,
+                             @"authorization_code": @"grant_type",
+                             @"redirect_uri": redirect_url,
+                             @"state": @"yifang"
+                             };*/
+    
+    [manager POST:@"http://www.code-desire.com.tw/LiMao/upload/Joe/clsDbManager/youkuAccessTokenGet.aspx" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //NSString * respondStr = [responseObject objectAtIndex:0];
+        NSLog(@"responseObject: %@", responseObject);
+       
+        //if ([responseObject indexOfObject:@"Status"] == 1) {
+        access_token = [responseObject objectForKey:@"AccessToken"];
+        NSLog(@"access_token = %@", access_token);
         
-        if (access_token.length>0) {
-            //根据code获取access_token
-            //[self AFNetworkingPostToGetAccessToken];
-            NSLog(@"access code is: %@", access_token);
-            self.accessTokenLabel.text = access_token;
-        }
+        //783407f4ab60d5e45c40099515ea35ae
+        accessTokenLabel.text = access_token;
+        //}
+       
         
-        return NO;
     }
+     
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
     
-    if (denied.length>0) {
-        return NO;
-    }
-    
-    return  YES;
+
 }
-
-//退出access_token webview
--(void)returnToMainScreenFromWebView{
-    [[self.view viewWithTag:1001]removeFromSuperview];
-}
-
-
-
-#pragma mark Upload to Youku function
 
 -(void) uploadYoukuVideos{
     
     //access_token = @"783407f4ab60d5e45c40099515ea35ae";
+    
     
     NSMutableDictionary *params =[[NSMutableDictionary alloc]init];
     [params setObject:client_id forKey:@"client_id"];
@@ -389,6 +331,10 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 //更新进度条
 - (void) onProgressUpdate:(int)progress{
     
+    float viewPorgress = progress*0.01;
+    
+    [progressBar setProgress:viewPorgress animated:YES];
+    
     NSLog(@"%d%%",progress);
     
     //NSLog(@"aaa");
@@ -399,6 +345,7 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 - (void) onSuccess:(NSString*)vid
 {
     [self alert:[NSString stringWithFormat:@"upload success,the video id : %@",vid] withtitle:@"now"];
+    progressBar.progress = 0.0f;
 }
 
 
@@ -406,6 +353,7 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 - (void) onFailure:(NSDictionary*)response
 {
     [self alert:[NSString stringWithFormat:@"type:%@,desc:%@,code:%@",[response valueForKey:@"type"],[response valueForKey:@"desc"],[response valueForKey:@"code"]] withtitle:@"failed"];
+    progressBar.progress = 0.0f;
 }
 
 #pragma mark - Additional Helper Functions
