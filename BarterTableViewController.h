@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define APPDELEGATE ((AppDelegate*)[UIApplication sharedApplication].delegate)
-
 @interface BarterTableViewController : UITableViewController<UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;

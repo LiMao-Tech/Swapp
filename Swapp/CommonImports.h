@@ -13,5 +13,7 @@
 
 // Networking
 
+// Appdelegate
+#define APPDELEGATE ((AppDelegate*)[UIApplication sharedApplication].delegate)
 
 #endif

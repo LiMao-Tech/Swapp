@@ -33,7 +33,7 @@
             </objects>
             <point key="canvasLocation" x="1547" y="1200"/>
         </scene>
-        <!--Title-->
+        <!--通知-->
         <scene sceneID="Ne1-VM-cX1">
             <objects>
                 <tableViewController id="1Ur-u7-Zbc" customClass="NotificationTableViewController" sceneMemberID="viewController">
@@ -67,7 +67,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="rJn-Vy-W8Z">
+                    <navigationItem key="navigationItem" title="通知" id="rJn-Vy-W8Z">
                         <barButtonItem key="leftBarButtonItem" title="SideBar" id="mU5-ak-IHG"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -110,7 +110,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="市集" rowHeight="208" id="sjI-E9-h9B">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="我的小铺" rowHeight="110" id="Ciw-Ux-VvJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ciw-Ux-VvJ" id="SOf-KJ-nZZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的小铺" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKd-Mx-zPJ">
+                                            <rect key="frame" x="266" y="44" width="68" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uKd-Mx-zPJ" firstAttribute="centerY" secondItem="SOf-KJ-nZZ" secondAttribute="centerY" id="S8b-GD-zob"/>
+                                        <constraint firstItem="uKd-Mx-zPJ" firstAttribute="centerX" secondItem="SOf-KJ-nZZ" secondAttribute="centerX" id="nom-FO-8nt"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bHV-J5-1Rw" kind="custom" customClass="SWRevealViewControllerSegue" id="rOL-PB-reD"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="市集" rowHeight="118" id="sjI-E9-h9B">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sjI-E9-h9B" id="jy5-36-JZk">
@@ -232,6 +254,9 @@
                                         <constraint firstItem="mBk-Xp-RfC" firstAttribute="centerY" secondItem="xDg-NP-izm" secondAttribute="centerY" id="YVD-Vf-uW3"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="a0h-Ut-89h" kind="custom" customClass="SWRevealViewControllerSegue" id="VC6-Cq-BI2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -245,7 +270,7 @@
             </objects>
             <point key="canvasLocation" x="1547" y="401"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--市集-->
         <scene sceneID="NVj-p6-zgb">
             <objects>
                 <viewController id="MBh-WR-CG5" customClass="LMCollectionViewController" sceneMemberID="viewController">
@@ -258,9 +283,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hwb-Ps-3DH">
+                    <navigationItem key="navigationItem" title="市集" id="Hwb-Ps-3DH">
                         <barButtonItem key="leftBarButtonItem" title="SideBar" id="sU7-O7-qef"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="sideBarButton" destination="sU7-O7-qef" id="02T-Pe-R6X"/>
                     </connections>
@@ -268,6 +294,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wca-zt-9a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="898" y="1200"/>
+        </scene>
+        <!--我的小铺-->
+        <scene sceneID="EnH-Tg-mhs">
+            <objects>
+                <viewController id="bHV-J5-1Rw" customClass="MyStoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xAj-En-0cU"/>
+                        <viewControllerLayoutGuide type="bottom" id="3tJ-Nc-fRM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="epz-A8-2H2">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="P2s-2x-Aoo"/>
+                    <navigationItem key="navigationItem" title="我的小铺" id="4cm-ZB-BTQ">
+                        <barButtonItem key="leftBarButtonItem" title="SideBar" id="jt5-b3-Qfv"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="sideBarButton" destination="jt5-b3-Qfv" id="4VD-2Q-cUH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFi-MF-vCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2311" y="401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rf1-0P-GAB">
@@ -286,6 +339,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u58-8H-DZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="898" y="401"/>
+        </scene>
+        <!--设定-->
+        <scene sceneID="8lO-5q-Iag">
+            <objects>
+                <tableViewController title="设定" id="a0h-Ut-89h" customClass="SettingsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="XWW-cW-8oU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="522-9g-EML">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="522-9g-EML" id="GR5-RO-acm">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="a0h-Ut-89h" id="9QG-PE-pcx"/>
+                            <outlet property="delegate" destination="a0h-Ut-89h" id="5de-S2-j5C"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Title" id="Xxr-t8-Jfr">
+                        <barButtonItem key="leftBarButtonItem" title="SideBar" id="ONY-Xs-WWY"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="sideBarButton" destination="ONY-Xs-WWY" id="laE-Lh-0ys"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Di1-0t-AsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2311" y="-256"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

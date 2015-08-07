@@ -8,14 +8,12 @@
 
 #import "AppDelegate.h"
 #import "CommonImports.h"
+#include "NetworkCheck.h"
+#import "SWRevealViewController.h"
 
 #import "BarterTableViewController.h"
 #import "BarterTableViewCell.h"
 #import "BarterDetailViewController.h"
-#import "SWRevealViewController.h"
-
-#import "CommonImports.h"
-#include "NetworkCheck.h"
 
 @interface BarterTableViewController ()
 

@@ -59,7 +59,7 @@
 }
 
 - (CGSize)collectionViewContentSize {
-    NSLog(@"Content size!");
+
     CGRect contentRect = UIEdgeInsetsInsetRect(self.collectionView.frame, self.collectionView.contentInset);
         return CGSizeMake(CGRectGetWidth(contentRect), (self.furthestBlockPoint.y+1) * self.blockPixels.height);
     
@@ -67,7 +67,6 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     if (!self.delegate) {
-        NSLog(@"layoutattributes!");
     return @[];
     }
     // see the comment on these properties
@@ -201,7 +200,6 @@
             
             if([self placeBlockAtIndex:indexPath]) { self.lastIndexPathPlaced = indexPath; }
             
-            NSLog(@"Block filled!");
         }
     }
 }

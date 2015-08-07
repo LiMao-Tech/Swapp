@@ -23,6 +23,12 @@
 		C4328E161B61EC1600247B17 /* NotificationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4328E151B61EC1600247B17 /* NotificationTableViewController.m */; };
 		C4328E201B652A7700247B17 /* LMCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C4328E1F1B652A7700247B17 /* LMCollectionViewLayout.m */; };
 		C4328E231B652C4E00247B17 /* LMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4328E221B652C4E00247B17 /* LMCollectionViewController.m */; };
+		C44E20451B69C85B00C8993E /* MyStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44E20441B69C85B00C8993E /* MyStoreViewController.m */; };
+		C44E20491B6B1E3B00C8993E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44E20481B6B1E3B00C8993E /* SettingsTableViewController.m */; };
+		C44E204F1B6E959100C8993E /* HorizontalMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C44E204E1B6E959100C8993E /* HorizontalMenu.m */; };
+		C44E205A1B6EDE7E00C8993E /* StoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44E20581B6EDE7E00C8993E /* StoreCollectionViewCell.m */; };
+		C44E205B1B6EDE7E00C8993E /* StoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44E20591B6EDE7E00C8993E /* StoreCollectionViewCell.xib */; };
+		C44E205D1B6F007600C8993E /* bellucci.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C44E205C1B6F007600C8993E /* bellucci.jpg */; };
 		C4B016191B567E0600EA4F92 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */; };
 		C4DBBC901B54C07C00E62818 /* NetworkCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */; };
 		DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB979251B4CC9B100314A35 /* BarterTableViewController.m */; };
@@ -72,6 +78,16 @@
 		C4328E1F1B652A7700247B17 /* LMCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewLayout.m; sourceTree = "<group>"; };
 		C4328E211B652C4E00247B17 /* LMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionViewController.h; sourceTree = "<group>"; };
 		C4328E221B652C4E00247B17 /* LMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewController.m; sourceTree = "<group>"; };
+		C44E20431B69C85B00C8993E /* MyStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStoreViewController.h; sourceTree = "<group>"; };
+		C44E20441B69C85B00C8993E /* MyStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStoreViewController.m; sourceTree = "<group>"; };
+		C44E20471B6B1E3B00C8993E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		C44E20481B6B1E3B00C8993E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		C44E204D1B6E959100C8993E /* HorizontalMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalMenu.h; sourceTree = "<group>"; };
+		C44E204E1B6E959100C8993E /* HorizontalMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalMenu.m; sourceTree = "<group>"; };
+		C44E20571B6EDE7E00C8993E /* StoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCollectionViewCell.h; sourceTree = "<group>"; };
+		C44E20581B6EDE7E00C8993E /* StoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCollectionViewCell.m; sourceTree = "<group>"; };
+		C44E20591B6EDE7E00C8993E /* StoreCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		C44E205C1B6F007600C8993E /* bellucci.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bellucci.jpg; sourceTree = "<group>"; };
 		C4B016181B567E0600EA4F92 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C4DBBC8F1B54C07C00E62818 /* NetworkCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCheck.m; sourceTree = "<group>"; };
 		C4DBBC911B54C09800E62818 /* NetworkCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCheck.h; sourceTree = "<group>"; };
@@ -153,13 +169,36 @@
 			name = Notification;
 			sourceTree = "<group>";
 		};
-		C4328E1D1B652A3600247B17 /* MainPageLayout */ = {
+		C4328E1D1B652A3600247B17 /* LMCollectionViewLayout */ = {
 			isa = PBXGroup;
 			children = (
 				C4328E1E1B652A7700247B17 /* LMCollectionViewLayout.h */,
 				C4328E1F1B652A7700247B17 /* LMCollectionViewLayout.m */,
 			);
-			name = MainPageLayout;
+			name = LMCollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		C44E20421B69C83900C8993E /* MyStore */ = {
+			isa = PBXGroup;
+			children = (
+				C44E20431B69C85B00C8993E /* MyStoreViewController.h */,
+				C44E20441B69C85B00C8993E /* MyStoreViewController.m */,
+				C44E204D1B6E959100C8993E /* HorizontalMenu.h */,
+				C44E204E1B6E959100C8993E /* HorizontalMenu.m */,
+				C44E20571B6EDE7E00C8993E /* StoreCollectionViewCell.h */,
+				C44E20581B6EDE7E00C8993E /* StoreCollectionViewCell.m */,
+				C44E20591B6EDE7E00C8993E /* StoreCollectionViewCell.xib */,
+			);
+			name = MyStore;
+			sourceTree = "<group>";
+		};
+		C44E20461B6B1E1400C8993E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C44E20471B6B1E3B00C8993E /* SettingsTableViewController.h */,
+				C44E20481B6B1E3B00C8993E /* SettingsTableViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		C4DBBC8E1B54BFA500E62818 /* NetworkReliability */ = {
@@ -189,12 +228,15 @@
 		DAC619E01B4B71540078F737 = {
 			isa = PBXGroup;
 			children = (
+				C44E20461B6B1E1400C8993E /* Settings */,
+				C44E20421B69C83900C8993E /* MyStore */,
 				C4328E131B61EBF800247B17 /* Notification */,
 				16FF05CF1B58A8D700E6FE17 /* Certifications */,
 				DAD5F04D1B4F7C6B0061F8CD /* MainPage */,
 				DAB979231B4CC76000314A35 /* BarterTable */,
 				C40B3BB91B5C67A500D674CB /* SideBar */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
+				C4328E1D1B652A3600247B17 /* LMCollectionViewLayout */,
 				C4DBBC8E1B54BFA500E62818 /* NetworkReliability */,
 				C40B3BB81B5C469500D674CB /* Frameworks */,
 				DAC61A051B4B71540078F737 /* SwappTests */,
@@ -230,6 +272,7 @@
 		DAC619EC1B4B71540078F737 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C44E205C1B6F007600C8993E /* bellucci.jpg */,
 				C40B3BBD1B5C6B7200D674CB /* UIImages */,
 				DAC619ED1B4B71540078F737 /* Info.plist */,
 				DAC619EE1B4B71540078F737 /* main.m */,
@@ -259,7 +302,6 @@
 			children = (
 				C4328E211B652C4E00247B17 /* LMCollectionViewController.h */,
 				C4328E221B652C4E00247B17 /* LMCollectionViewController.m */,
-				C4328E1D1B652A3600247B17 /* MainPageLayout */,
 				C4023BC41B51F40F00CC5A45 /* MainCollectionViewCell.h */,
 				C4023BC51B51F40F00CC5A45 /* MainCollectionViewCell.m */,
 				C4023BC61B51F40F00CC5A45 /* MainCollectionViewCell.xib */,
@@ -351,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44E205B1B6EDE7E00C8993E /* StoreCollectionViewCell.xib in Resources */,
 				16FF05CE1B58A8D200E6FE17 /* SwappCertification.zip in Resources */,
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
 				DAC619FD1B4B71540078F737 /* LaunchScreen.xib in Resources */,
@@ -358,6 +401,7 @@
 				C4023BC81B51F40F00CC5A45 /* MainCollectionViewCell.xib in Resources */,
 				C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */,
 				C42505071B52C4D700231183 /* BarterDetailViewController.xib in Resources */,
+				C44E205D1B6F007600C8993E /* bellucci.jpg in Resources */,
 				16FF05D11B58A9A200E6FE17 /* CertificationREADME.txt in Resources */,
 				C40E39861B6070370046AC2F /* ItemDetailViewController.xib in Resources */,
 			);
@@ -377,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44E20491B6B1E3B00C8993E /* SettingsTableViewController.m in Sources */,
 				C40B3BC11B5C6C6900D674CB /* SideBarTableViewCell.m in Sources */,
 				C4023BC71B51F40F00CC5A45 /* MainCollectionViewCell.m in Sources */,
 				C40E39851B6070370046AC2F /* ItemDetailViewController.m in Sources */,
@@ -387,7 +432,10 @@
 				DAC619EF1B4B71540078F737 /* main.m in Sources */,
 				DAB979271B4CC9B100314A35 /* BarterTableViewController.m in Sources */,
 				C4DBBC901B54C07C00E62818 /* NetworkCheck.m in Sources */,
+				C44E205A1B6EDE7E00C8993E /* StoreCollectionViewCell.m in Sources */,
+				C44E204F1B6E959100C8993E /* HorizontalMenu.m in Sources */,
 				C42505061B52C4D700231183 /* BarterDetailViewController.m in Sources */,
+				C44E20451B69C85B00C8993E /* MyStoreViewController.m in Sources */,
 				C4328E201B652A7700247B17 /* LMCollectionViewLayout.m in Sources */,
 				C4328E161B61EC1600247B17 /* NotificationTableViewController.m in Sources */,
 				C40B3BB71B5C459800D674CB /* SWRevealViewController.m in Sources */,

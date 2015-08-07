@@ -38,7 +38,17 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        [self datasInit];
+    [self datasInit];
+    
+    // setup sidebar menu
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sideBarButton setTarget: self.revealViewController];
+        [self.sideBarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
+    
     // init the layout
     LMCollectionViewLayout * layout = [[LMCollectionViewLayout alloc] init];
     layout.delegate = self;
@@ -58,21 +68,9 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
     [self.lmCollectionView registerNib:mainCell forCellWithReuseIdentifier:mainCellIdentifier];
     
     // Add to view
-    [self.view addSubview:self.lmCollectionView];
-    
-    // setup sidebar menu
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [self.sideBarButton setTarget: self.revealViewController];
-        [self.sideBarButton setAction: @selector( revealToggle: )];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    }
-    
+    [self.view addSubview: self.lmCollectionView];
 
     [self.lmCollectionView reloadData];
-    
-    NSLog(@"Sections: %lu", self.lmCollectionView.numberOfSections);
 }
 - (void)datasInit {
     num = 0;
@@ -149,12 +147,11 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"items: %lu", self.numbers.count);
     return self.numbers.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-       NSLog(@"Returning a Cell!");
+
     MainCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:mainCellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [self colorForNumber:self.numbers[indexPath.row]];
     
@@ -187,7 +184,6 @@ NSString *cloudAddrYumen = @"http://www.code-desire.com.tw/LiMao/Barter/Images/"
 
 
 #pragma mark – LMCollectionViewLayoutDelegate
-
 
 -(CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout blockSizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     

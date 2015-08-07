@@ -13,6 +13,7 @@
     BOOL isAnimating;
 }
 @property (strong, nonatomic) UICollectionView * lmCollectionView;
+
 @property (nonatomic) NSMutableArray* numbers;
 @property (nonatomic) NSMutableArray* numberWidths;
 @property (nonatomic) NSMutableArray* numberHeights;
