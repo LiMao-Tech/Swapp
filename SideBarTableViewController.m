@@ -25,7 +25,8 @@ typedef enum menu : NSUInteger {
     通知 = 3,
     我的交换 = 4,
     我的收藏 = 5,
-    设定 = 6
+    设定 = 6,
+    相机 = 7
 } Menu;
 
 
@@ -41,7 +42,7 @@ typedef enum menu : NSUInteger {
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    menuItems = @[@"我的小铺", @"市集", @"许愿池", @"通知", @"我的交换", @"我的收藏", @"设定"];
+    menuItems = @[@"我的小铺", @"市集", @"许愿池", @"通知", @"我的交换", @"我的收藏", @"设定", @"相机"];
     
     // register Xib
 
