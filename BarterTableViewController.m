@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CommonImports.h"
-#include "NetworkCheck.h"
+#include "Reachability.h"
 #import "SWRevealViewController.h"
 
 #import "BarterTableViewController.h"

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
-#import "NetworkCheck.h"
+#import "Reachability.h"
 #import "CommonImports.h"
 
 #import "SettingsTableViewController.h"
