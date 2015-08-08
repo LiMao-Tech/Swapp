@@ -8,6 +8,10 @@
 
 #import "UploadImageAndVideoViewController.h"
 
+#import "AppDelegate.h"
+#import "CommonImports.h"
+
+
 @interface UploadImageAndVideoViewController ()
 
 @end
@@ -162,15 +166,16 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 
 - (void)postImages {
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //APPDELEGATE.AFNManager;
     //上传的字典
     //NSDictionary *parameters = @{@"orderno":@"1419486171570"};
     //上传的本地路径
     //NSURL *filePath = [NSURL fileURLWithPath:_imgPath];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    APPDELEGATE.AFNManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     //上传的网上路径
-    [manager POST:@"http://www.code-desire.com.tw/LiMao/upload/Yifang/testUpload.php" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [APPDELEGATE.AFNManager POST:@"http://www.code-desire.com.tw/LiMao/upload/Yifang/testUpload.php" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //上传图片的本地路径和上传图片的文件名
         //NSInteger * counter = 0;
         for (NSData *imageData in self.chosenImages) {
@@ -253,10 +258,10 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 
 -(void) getAccessToken{
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    APPDELEGATE.AFNManager.responseSerializer = [AFJSONResponseSerializer serializer];
+    APPDELEGATE.AFNManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     
     /*NSDictionary * params =@{
                              @"client_id": client_id,
@@ -266,7 +271,7 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
                              @"state": @"yifang"
                              };*/
     
-    [manager POST:@"http://www.code-desire.com.tw/LiMao/upload/Joe/clsDbManager/youkuAccessTokenGet.aspx" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [APPDELEGATE.AFNManager POST:@"http://www.code-desire.com.tw/LiMao/upload/Joe/clsDbManager/youkuAccessTokenGet.aspx" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //NSString * respondStr = [responseObject objectAtIndex:0];
         NSLog(@"responseObject: %@", responseObject);
        

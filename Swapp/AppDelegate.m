@@ -36,13 +36,16 @@
     }
 #endif
     
+    /* remote notification setting ends */
+    
     // get screen size
     self.SCREEN_WIDTH = UIScreen.mainScreen.bounds.size.width;
     self.SCREEN_HEIGHT = UIScreen.mainScreen.bounds.size.height;
     
-    /* remote notification setting ends */
     
-    // set up network checking
+    
+    // set up AFNetworking manager
+    self.AFNManager = [AFHTTPRequestOperationManager manager];
     
     
 

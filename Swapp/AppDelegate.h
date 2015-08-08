@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
+#import "AFNetworking.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,5 +17,7 @@
 
 @property CGFloat SCREEN_WIDTH;
 @property CGFloat SCREEN_HEIGHT;
+
+@property AFHTTPRequestOperationManager *AFNManager;
 
 @end

@@ -311,9 +311,7 @@
 				164A78091B76999E00B4FA23 /* UploadImageAndVideoViewController.m */,
 				164A780A1B76999E00B4FA23 /* UploadImageAndVideoViewController.xib */,
 				164A780B1B76999E00B4FA23 /* youkuKeyCodeNotes.txt */,
-				164A780C1B76999E00B4FA23 /* AFNetworking */,
 				164A78201B76999E00B4FA23 /* ELCImagePicker */,
-				164A78381B76999E00B4FA23 /* UIKit+AFNetworking */,
 				164A784A1B76999E00B4FA23 /* youkuUploader */,
 			);
 			name = UploadImagesAndVideos;
@@ -534,6 +532,15 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		164A78C91B76A56F00B4FA23 /* AFNetworkingPackage */ = {
+			isa = PBXGroup;
+			children = (
+				164A780C1B76999E00B4FA23 /* AFNetworking */,
+				164A78381B76999E00B4FA23 /* UIKit+AFNetworking */,
+			);
+			name = AFNetworkingPackage;
+			sourceTree = "<group>";
+		};
 		16FF05CF1B58A8D700E6FE17 /* Certifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +646,7 @@
 				DAB979231B4CC76000314A35 /* BarterTable */,
 				C40B3BB91B5C67A500D674CB /* SideBar */,
 				DAC619EB1B4B71540078F737 /* Swapp */,
+				164A78C91B76A56F00B4FA23 /* AFNetworkingPackage */,
 				C4328E1D1B652A3600247B17 /* LMCollectionViewLayout */,
 				C40B3BB81B5C469500D674CB /* Frameworks */,
 				DAC61A051B4B71540078F737 /* SwappTests */,
