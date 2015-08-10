@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rMw-vj-3di">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tXg-bE-yb7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -300,7 +300,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="g4y-fC-heW" kind="custom" customClass="SWRevealViewControllerSegue" id="j7U-qb-5t0"/>
+                                    <segue destination="Mmi-zd-eW7" kind="show" id="8Sz-7p-f4g"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -310,6 +310,7 @@
                             <outlet property="delegate" destination="4x4-cb-cd5" id="Dnq-Ys-KLE"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="rPH-aQ-CQU"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSC-3B-DZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -378,7 +379,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MBh-WR-CG5" kind="relationship" relationship="rootViewController" id="W2p-6h-HgC"/>
+                        <segue destination="4x4-cb-cd5" kind="relationship" relationship="rootViewController" id="FQK-ST-faP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u58-8H-DZF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,8 +421,173 @@
             </objects>
             <point key="canvasLocation" x="2311" y="-256"/>
         </scene>
+        <!--Version 1.0-->
+        <scene sceneID="rzZ-mC-mh0">
+            <objects>
+                <viewController id="Mmi-zd-eW7" customClass="ApiViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WMN-Lc-xX0"/>
+                        <viewControllerLayoutGuide type="bottom" id="WsY-Uy-Uw9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AVr-jc-U9r">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="96p-bi-KKN">
+                                <rect key="frame" x="103" y="75" width="114" height="30"/>
+                                <state key="normal" title="Share to Wechat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="wechatShareBtn:" destination="Mmi-zd-eW7" eventType="touchUpInside" id="Rpc-Jj-3U1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcs-Zi-cOu">
+                                <rect key="frame" x="108" y="145" width="105" height="30"/>
+                                <state key="normal" title="Share to Weibo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="weiboShareBrn:" destination="Mmi-zd-eW7" eventType="touchUpInside" id="yKm-Hv-0t1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB2-ru-olX">
+                                <rect key="frame" x="78" y="211" width="165" height="30"/>
+                                <state key="normal" title="Take or Select an Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HaV-2S-CPa" kind="show" id="CwA-BZ-dca"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-iC-YtR">
+                                <rect key="frame" x="75" y="276" width="171" height="30"/>
+                                <state key="normal" title="Record or Select a Video">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="87A-cW-gsN" kind="show" id="20k-h2-8QG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Version 1.0" id="i40-Mk-9x3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kUW-8D-zpv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3106" y="106"/>
+        </scene>
+        <!--Record Video View Controller-->
+        <scene sceneID="of6-8Y-bLH">
+            <objects>
+                <viewController id="87A-cW-gsN" customClass="RecordVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GIF-bB-clB"/>
+                        <viewControllerLayoutGuide type="bottom" id="r95-58-BAH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pCe-Xs-z1C">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxu-cC-gdX">
+                                <rect key="frame" x="117" y="397" width="93" height="30"/>
+                                <state key="normal" title="Record Video">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="87A-cW-gsN" eventType="touchUpInside" id="p1u-7g-KA0"/>
+                                </connections>
+                            </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtQ-S6-1DF">
+                                <rect key="frame" x="38" y="52" width="250" height="269"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1i-64-cfU">
+                                <rect key="frame" x="72" y="461" width="183" height="30"/>
+                                <state key="normal" title="Choose Video from Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectVideo:" destination="87A-cW-gsN" eventType="touchUpInside" id="VSt-Pe-j1W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="yld-VA-ayy"/>
+                    <connections>
+                        <outlet property="uiview" destination="qtQ-S6-1DF" id="6YB-Vf-a5G"/>
+                        <outlet property="videoController" destination="qtQ-S6-1DF" id="hJ0-7N-e23"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OjL-iL-dVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3870" y="496"/>
+        </scene>
+        <!--Select Image View Controller-->
+        <scene sceneID="76N-vk-zyd">
+            <objects>
+                <viewController id="HaV-2S-CPa" customClass="SelectImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1z0-cv-tTs"/>
+                        <viewControllerLayoutGuide type="bottom" id="J9M-ve-JSN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ysp-mn-QF4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ll-qV-kkY">
+                                <rect key="frame" x="127" y="335" width="77" height="30"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="HaV-2S-CPa" eventType="touchUpInside" id="ggh-Uf-gOf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpv-20-ZDD">
+                                <rect key="frame" x="73" y="373" width="185" height="30"/>
+                                <state key="normal" title="Choose Photo from Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="HaV-2S-CPa" eventType="touchUpInside" id="1NA-dr-nhW"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaV-OL-0vo">
+                                <rect key="frame" x="45" y="64" width="240" height="238"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2da-Eq-4se">
+                                <rect key="frame" x="43" y="421" width="244" height="31"/>
+                                <connections>
+                                    <action selector="sliderChange:" destination="HaV-2S-CPa" eventType="valueChanged" id="CU4-kK-jjz"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5H-mW-BQE">
+                                <rect key="frame" x="119" y="467" width="92" height="30"/>
+                                <state key="normal" title="Change Filter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFilter:" destination="HaV-2S-CPa" eventType="touchUpInside" id="JiS-Bs-4p0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pzf-kI-BOI"/>
+                    <connections>
+                        <outlet property="imageView" destination="IaV-OL-0vo" id="ps8-Gl-82D"/>
+                        <outlet property="sliderValue" destination="2da-Eq-4se" id="aWC-GO-By8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcU-HM-EXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3864" y="-296"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uWh-zf-53n"/>
+        <segue reference="FQK-ST-faP"/>
     </inferredMetricsTieBreakers>
 </document>

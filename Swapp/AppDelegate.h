@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "NetworkCheck.h"
+#import "ViewDelegate.h"
+#import "WXApi.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+//@class AGViewController;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
+{
+    enum WXScene _scene;
+    ViewDelegate *_viewDelegate;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong) Reachability * networkManager;
+
+@property (nonatomic,readonly) ViewDelegate *viewDelegate;
 
 @property CGFloat SCREEN_WIDTH;
 @property CGFloat SCREEN_HEIGHT;
