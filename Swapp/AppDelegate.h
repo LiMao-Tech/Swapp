@@ -10,10 +10,18 @@
 #import "Reachability.h"
 #import "AFNetworking.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+//@class AGViewController;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
+{
+    enum WXScene _scene;
+    ViewDelegate *_viewDelegate;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong) Reachability * networkManager;
+
+@property (nonatomic,readonly) ViewDelegate *viewDelegate;
 
 @property CGFloat SCREEN_WIDTH;
 @property CGFloat SCREEN_HEIGHT;

@@ -7,12 +7,32 @@
 //
 
 #import "AppDelegate.h"
+#import "ApiViewController.h"
+#import "WXApi.h"
+#import "WeiboSDK.h"
+#import "WeiboApi.h"
+#import <RennSDK/RennSDK.h>
+#import "YXApi.h"
+//以下是腾讯QQ和QQ空间
+#import <TencentOpenAPI/QQApi.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+//以下分别是Google+、Pinterest
+#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <GooglePlus/GooglePlus.h>
+#import <Pinterest/Pinterest.h>
+
+//开启QQ和Facebook网页授权需要
+#import <QZoneConnection/ISSQZoneApp.h>
+#import <FacebookConnection/ISSFacebookApp.h>
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+
+@synthesize viewDelegate = _viewDelegate;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -48,9 +68,96 @@
     self.AFNManager = [AFHTTPRequestOperationManager manager];
     
     
-
+    //[ShareSDK registerApp:@"946e5266c1c6"];
+    [ShareSDK registerApp:@"5559f92aa230"];
+    [self initializePlat];
+    
     
     return YES;
+}
+
+- (void)initializePlat
+{
+    
+    /**
+     连接新浪微博开放平台应用以使用相关功能，此应用需要引用SinaWeiboConnection.framework
+     http://open.weibo.com上注册新浪微博开放平台应用，并将相关信息填写到以下字段
+     **
+     [ShareSDK connectSinaWeiboWithAppKey:@"1266441733"
+     appSecret:@"2e4ca7bcd939a67cb284f6d1733a921d"
+     redirectUri:@"http://www.teirondynamicstudios.com"
+     weiboSDKCls:[WeiboSDK class]];
+     
+     **
+     连接腾讯微博开放平台应用以使用相关功能，此应用需要引用TencentWeiboConnection.framework
+     http://dev.t.qq.com上注册腾讯微博开放平台应用，并将相关信息填写到以下字段
+     
+     如果需要实现SSO，需要导入libWeiboSDK.a，并引入WBApi.h，将WBApi类型传入接口
+     **
+     [ShareSDK connectTencentWeiboWithAppKey:@"801307650"
+     appSecret:@"ae36f4ee3946e1cbb98d6965b0b2ff5c"
+     redirectUri:@"http://www.teirondynamicstudios.com"
+     wbApiCls:[WeiboApi class]];
+     
+     *
+     连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
+     http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
+     **
+     //    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885" wechatCls:[WXApi class]];
+     [ShareSDK connectWeChatWithAppId:@"wxd55c3595d7dadeca"
+     appSecret:@"83faa9c425034bb7879c006d7661f2dc"
+     wechatCls:[WXApi class]];
+     */
+    
+    /**
+     连接新浪微博开放平台应用以使用相关功能，此应用需要引用SinaWeiboConnection.framework
+     http://open.weibo.com上注册新浪微博开放平台应用，并将相关信息填写到以下字段
+     **/
+    [ShareSDK connectSinaWeiboWithAppKey:@"568898243"
+                               appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                             redirectUri:@"http://www.sharesdk.cn"
+                             weiboSDKCls:[WeiboSDK class]];
+    
+    /**
+     连接腾讯微博开放平台应用以使用相关功能，此应用需要引用TencentWeiboConnection.framework
+     http://dev.t.qq.com上注册腾讯微博开放平台应用，并将相关信息填写到以下字段
+     
+     如果需要实现SSO，需要导入libWeiboSDK.a，并引入WBApi.h，将WBApi类型传入接口
+     **/
+    [ShareSDK connectTencentWeiboWithAppKey:@"801307650"
+                                  appSecret:@"ae36f4ee3946e1cbb98d6965b0b2ff5c"
+                                redirectUri:@"http://www.sharesdk.cn"
+                                   wbApiCls:[WeiboApi class]];
+    
+    /**
+     连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
+     http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
+     **/
+    //    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885" wechatCls:[WXApi class]];
+    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"
+                           appSecret:@"64020361b8ec4c99936c0e3999a9f249"
+                           wechatCls:[WXApi class]];
+    
+}
+
+#pragma mark - 如果使用SSO（可以简单理解成客户端授权），以下方法是必要的
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
+
+//iOS 4.2+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -145,7 +252,5 @@
     // Set icon badge number to zero
     application.applicationIconBadgeNumber = 0;
 }
-
-
 
 @end

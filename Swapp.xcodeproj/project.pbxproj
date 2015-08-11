@@ -291,6 +291,73 @@
 				164A78C81B7699C400B4FA23 /* libxml2.2.dylib in Frameworks */,
 				164A78C61B7699BC00B4FA23 /* libz.dylib in Frameworks */,
 				C4B016191B567E0600EA4F92 /* SystemConfiguration.framework in Frameworks */,
+				C98CA0101B791809007986EA /* libTCWeiboSDK.a in Frameworks */,
+				C98CA04A1B79225B007986EA /* QuartzCore.framework in Frameworks */,
+				C98CA0001B791809007986EA /* YouDaoNoteConnection.framework in Frameworks */,
+				C98CA0131B791809007986EA /* ShareSDK.framework in Frameworks */,
+				C98C9FE71B791809007986EA /* InstapaperConnection.framework in Frameworks */,
+				C98CA03F1B79225B007986EA /* AddressBook.framework in Frameworks */,
+				C98C9FFD1B791809007986EA /* WeChatConnection.framework in Frameworks */,
+				C98C9FEC1B791809007986EA /* LineConnection.framework in Frameworks */,
+				C98CA0431B79225B007986EA /* CoreText.framework in Frameworks */,
+				C98C9FEA1B791809007986EA /* KaKaoStoryConnection.framework in Frameworks */,
+				C98C9FFB1B791809007986EA /* TwitterConnection.framework in Frameworks */,
+				C98C9FE61B791809007986EA /* InstagramConnection.framework in Frameworks */,
+				C98CA0491B79225B007986EA /* libz.1.2.5.dylib in Frameworks */,
+				C98CA03E1B79225B007986EA /* Accounts.framework in Frameworks */,
+				C98CA03C1B79225B007986EA /* ImageIO.framework in Frameworks */,
+				C98C9FF81B791809007986EA /* SohuConnection.framework in Frameworks */,
+				C98CA0121B791809007986EA /* libYixinSDK.a in Frameworks */,
+				C98CA0461B79225B007986EA /* libstdc++.dylib in Frameworks */,
+				C98C9FF31B791809007986EA /* QQConnection.framework in Frameworks */,
+				C98C9FE11B791809007986EA /* DropboxConnection.framework in Frameworks */,
+				C98C9FEE1B791809007986EA /* MailConnection.framework in Frameworks */,
+				C98CA04F1B79225B007986EA /* CoreGraphics.framework in Frameworks */,
+				C98C9FFC1B791809007986EA /* VKontakteConnection.framework in Frameworks */,
+				C98CA0451B79225B007986EA /* Security.framework in Frameworks */,
+				C98CA0071B791809007986EA /* GooglePlus.framework in Frameworks */,
+				C98CA0151B791809007986EA /* ShareSDKFlatShareViewUI.framework in Frameworks */,
+				C98C9FF61B791809007986EA /* SinaWeiboConnection.framework in Frameworks */,
+				C98CA0041B791809007986EA /* ShareSDKCoreService.framework in Frameworks */,
+				C98CA0171B791809007986EA /* ShareSDKiPadDefaultShareViewUI.framework in Frameworks */,
+				C98CA0051B791809007986EA /* GoogleOpenSource.framework in Frameworks */,
+				C98CA0011B791809007986EA /* AGCommon.framework in Frameworks */,
+				C98CA0421B79225B007986EA /* MediaPlayer.framework in Frameworks */,
+				C98CA01E1B791809007986EA /* ShareSDKiPhoneSimpleShareViewUI.framework in Frameworks */,
+				C98CA01C1B791809007986EA /* ShareSDKiPhoneDefaultShareViewUI.framework in Frameworks */,
+				C98C9FFA1B791809007986EA /* TumblrConnection.framework in Frameworks */,
+				C98C9FFE1B791809007986EA /* WhatsAppConnection.framework in Frameworks */,
+				C98C9FF91B791809007986EA /* TencentWeiboConnection.framework in Frameworks */,
+				C98C9FE21B791809007986EA /* EverNoteConnection.framework in Frameworks */,
+				C98CA00A1B791809007986EA /* TencentOpenAPI.framework in Frameworks */,
+				C98CA0401B79225B007986EA /* CoreMotion.framework in Frameworks */,
+				C98C9FE51B791809007986EA /* GooglePlusConnection.framework in Frameworks */,
+				C98CA04B1B79225B007986EA /* MessageUI.framework in Frameworks */,
+				C98CA0411B79225B007986EA /* CoreLocation.framework in Frameworks */,
+				C98C9FE41B791809007986EA /* FlickrConnection.framework in Frameworks */,
+				C98C9FEF1B791809007986EA /* MingDaoConnection.framework in Frameworks */,
+				C98CA03D1B79225B007986EA /* Social.framework in Frameworks */,
+				C98C9FE91B791809007986EA /* KaiXinConnection.framework in Frameworks */,
+				C98CA03B1B79225B007986EA /* AdSupport.framework in Frameworks */,
+				C98CA00E1B791809007986EA /* libWeiboSDK.a in Frameworks */,
+				C98C9FF21B791809007986EA /* PrintConnection.framework in Frameworks */,
+				C98CA0191B791809007986EA /* ShareSDKiPadSimpleShareViewUI.framework in Frameworks */,
+				C98C9FFF1B791809007986EA /* YiXinConnection.framework in Frameworks */,
+				C98CA01A1B791809007986EA /* ShareSDKiPhoneAppRecommendShareViewUI.framework in Frameworks */,
+				C98C9FF71B791809007986EA /* SMSConnection.framework in Frameworks */,
+				C98C9FF41B791809007986EA /* QZoneConnection.framework in Frameworks */,
+				C98C9FF01B791809007986EA /* PinterestConnection.framework in Frameworks */,
+				C98CA0111B791809007986EA /* libWeChatSDK.a in Frameworks */,
+				C98CA0381B79225B007986EA /* CoreImage.framework in Frameworks */,
+				C98CA03A1B79225B007986EA /* CoreMedia.framework in Frameworks */,
+				C98C9FF51B791809007986EA /* RenRenConnection.framework in Frameworks */,
+				C98C9FDF1B791809007986EA /* CopyConnection.framework in Frameworks */,
+				C98CA01F1B791809007986EA /* ShareSDKShareActionSheet.framework in Frameworks */,
+				C98C9FEB1B791809007986EA /* KaKaoTalkConnection.framework in Frameworks */,
+				C98C9FE31B791809007986EA /* FacebookConnection.framework in Frameworks */,
+				C98CA0441B79225B007986EA /* AssetsLibrary.framework in Frameworks */,
+				C98CA0391B79225B007986EA /* MobileCoreServices.framework in Frameworks */,
+				C98C9FE01B791809007986EA /* DouBanConnection.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +733,8 @@
 		DAC619EB1B4B71540078F737 /* Swapp */ = {
 			isa = PBXGroup;
 			children = (
+				C98CA05B1B792DC7007986EA /* ViewDelegate.h */,
+				C98CA05C1B792DC7007986EA /* ViewDelegate.m */,
 				C4023BC91B51F8D000CC5A45 /* CommonImports.h */,
 				DAC619F01B4B71540078F737 /* AppDelegate.h */,
 				DAC619F11B4B71540078F737 /* AppDelegate.m */,
@@ -682,6 +751,7 @@
 		DAC619EC1B4B71540078F737 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C98CA05E1B792DF0007986EA /* Swapp-Prefix.pch */,
 				C44E205C1B6F007600C8993E /* bellucci.jpg */,
 				C40B3BBD1B5C6B7200D674CB /* UIImages */,
 				DAC619ED1B4B71540078F737 /* Info.plist */,
@@ -771,7 +841,7 @@
 				TargetAttributes = {
 					DAC619E81B4B71540078F737 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = QDC996CTVH;
+						DevelopmentTeam = 5Z2AJBY7MH;
 					};
 					DAC61A011B4B71540078F737 = {
 						CreatedOnToolsVersion = 6.4;
@@ -786,6 +856,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = DAC619E01B4B71540078F737;
 			productRefGroup = DAC619EA1B4B71540078F737 /* Products */;
@@ -803,7 +874,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98CA00B1B791809007986EA /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				C98CA00F1B791809007986EA /* WeiboSDK.bundle in Resources */,
+				C98CA00C1B791809007986EA /* RennSDK.bundle in Resources */,
 				C44E205B1B6EDE7E00C8993E /* StoreCollectionViewCell.xib in Resources */,
+				C98CA0161B791809007986EA /* ShareSDKiPadDefaultShareViewUI.bundle in Resources */,
+				C98CA0061B791809007986EA /* GooglePlus.bundle in Resources */,
 				16FF05CE1B58A8D200E6FE17 /* SwappCertification.zip in Resources */,
 				164A78A11B76999F00B4FA23 /* ELCAssetTablePicker.xib in Resources */,
 				DAC619F81B4B71540078F737 /* Main.storyboard in Resources */,
@@ -811,6 +887,9 @@
 				164A789F1B76999F00B4FA23 /* ELCAlbumPickerController.xib in Resources */,
 				164A788E1B76999F00B4FA23 /* youkuKeyCodeNotes.txt in Resources */,
 				DAC619FA1B4B71540078F737 /* Images.xcassets in Resources */,
+				C98CA0031B791809007986EA /* Resource.bundle in Resources */,
+				C98CA01B1B791809007986EA /* ShareSDKiPhoneDefaultShareViewUI.bundle in Resources */,
+				C98CA01D1B791809007986EA /* ShareSDKiPhoneSimpleShareViewUI.bundle in Resources */,
 				C4023BC81B51F40F00CC5A45 /* MainCollectionViewCell.xib in Resources */,
 				164A78A21B76999F00B4FA23 /* Overlay.png in Resources */,
 				C4023BC31B51F3E100CC5A45 /* BarterTableViewCell.xib in Resources */,
@@ -818,9 +897,13 @@
 				164A78A01B76999F00B4FA23 /* ELCAssetPicker.xib in Resources */,
 				164A788D1B76999F00B4FA23 /* UploadImageAndVideoViewController.xib in Resources */,
 				C42505071B52C4D700231183 /* BarterDetailViewController.xib in Resources */,
+				C98C9FE81B791809007986EA /* InstapaperResource.bundle in Resources */,
 				C44E205D1B6F007600C8993E /* bellucci.jpg in Resources */,
+				C98CA0181B791809007986EA /* ShareSDKiPadSimpleShareViewUI.bundle in Resources */,
 				16FF05D11B58A9A200E6FE17 /* CertificationREADME.txt in Resources */,
 				C40E39861B6070370046AC2F /* ItemDetailViewController.xib in Resources */,
+				C98CA0141B791809007986EA /* ShareSDKFlatShareViewUI.bundle in Resources */,
+				C98CA0091B791809007986EA /* PinterestSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,6 +926,7 @@
 				164A78B31B76999F00B4FA23 /* ASIInputStream.m in Sources */,
 				164A78BD1B76999F00B4FA23 /* ASIS3Bucket.m in Sources */,
 				C4023BC71B51F40F00CC5A45 /* MainCollectionViewCell.m in Sources */,
+				C98CA0571B792400007986EA /* RecordVideoViewController.m in Sources */,
 				C40E39851B6070370046AC2F /* ItemDetailViewController.m in Sources */,
 				164A78941B76999F00B4FA23 /* AFURLConnectionOperation.m in Sources */,
 				164A78931B76999F00B4FA23 /* AFSecurityPolicy.m in Sources */,
@@ -927,6 +1011,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C98C9FAD1B791809007986EA /* ShareSDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C98C9FAE1B791809007986EA /* en */,
+				C98C9FB11B791809007986EA /* zh-Hans */,
+			);
+			name = ShareSDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		DAC619F61B4B71540078F737 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -967,6 +1060,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK/",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -983,6 +1080,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK/",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1011,6 +1112,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK/",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1020,6 +1125,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK/",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1035,6 +1144,18 @@
 				INFOPLIST_FILE = Swapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK/Extend/SinaWeiboSDK",
+					"$(PROJECT_DIR)/ShareSDK/Extend/TencentWeiboSDK",
+					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
+					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1049,6 +1170,18 @@
 				INFOPLIST_FILE = Swapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK/Extend/SinaWeiboSDK",
+					"$(PROJECT_DIR)/ShareSDK/Extend/TencentWeiboSDK",
+					"$(PROJECT_DIR)/ShareSDK/Extend/WeChatSDK",
+					"$(PROJECT_DIR)/ShareSDK/Extend/YiXinSDK",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"-Objc",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
