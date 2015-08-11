@@ -14,8 +14,21 @@
 
 @property (strong, nonatomic) NSURL *videoURL;
 @property (retain, nonatomic) IBOutlet MPMoviePlayerController *videoController;
+
 - (IBAction)recordVideo:(id)sender;
 - (IBAction)selectVideo:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UIView *uiview;
+
+/* Yifang Upload to Youku */
+- (IBAction)uploadVideo:(id)sender;
+
+//更新进度
+- (void) onProgressUpdate:(int)progress;
+//上传成功
+- (void) onSuccess:(NSString*)vid;
+//上传失败
+- (void) onFailure:(NSDictionary*)response;
+
 
 @end

@@ -6,9 +6,14 @@
 //  Copyright (c) 2015 vimfung. All rights reserved.
 //
 
+/* general importing */
+#import "AppDelegate.h"
+#import "CommonImports.h"
+
 #import "SelectImageViewController.h"
 #import "ShareHelperFunctions.h"
 #import "SWRevealViewController.h"
+
 
 
 @interface SelectImageViewController ()
@@ -24,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.counter = 0;
     self.filterIndex = 0;
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -55,6 +61,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark imagepicker Methods
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
@@ -80,6 +88,8 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
+
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
@@ -207,4 +217,58 @@
     }
     
 }
+
+#pragma mark upload image for Yifang
+
+- (IBAction)uploadImages:(id)sender {
+    
+    // 1. save the modified images
+    UIImage* tempImg = self.imageView.image;
+    NSData *dataImage = UIImageJPEGRepresentation(tempImg, 1);
+    [self.chosenImages addObject:dataImage];
+    NSLog(@"one photo is reconstructed");
+    
+    // 2. self upload
+    [self postImages];
+    
+}
+
+- (void)postImages {
+    
+    //AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //APPDELEGATE.AFNManager;
+    //上传的字典
+    //NSDictionary *parameters = @{@"orderno":@"1419486171570"};
+    //上传的本地路径
+    //NSURL *filePath = [NSURL fileURLWithPath:_imgPath];
+    APPDELEGATE.AFNManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    //上传的网上路径
+    [APPDELEGATE.AFNManager POST:@"http://www.code-desire.com.tw/LiMao/upload/Yifang/testUpload.php" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //上传图片的本地路径和上传图片的文件名
+        //NSInteger * counter = 0;
+        for (NSData *imageData in self.chosenImages) {
+            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"image%ld", (long)self.counter] fileName:[NSString stringWithFormat:@"image%ld.jpg", (long)self.counter] mimeType:@"image/jpeg"];
+            self.counter = self.counter + 1;
+            NSLog(@"image%ld.jpg is going to be uploaded", (long)self.counter);
+        }
+        //[formData appendPartWithFileURL:filePath name:@"rpf" error:nil];
+        // NSLog(@"%@",filePath);
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
+        //NSString *message = responseObject[@"message"];
+        //NSLog(@"message:%@",message);
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Message" message:@"successfully upload" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+        self.chosenImages = [[NSMutableArray alloc] init];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Message" message:@"failed to upload" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+        self.chosenImages = [[NSMutableArray alloc] init];
+    }];
+    
+}
+
+
 @end

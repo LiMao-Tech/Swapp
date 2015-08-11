@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rMw-vj-3di">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rMw-vj-3di">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -484,15 +484,6 @@
                                     <action selector="sliderChange:" destination="Xs5-83-iVp" eventType="valueChanged" id="jJC-y1-asK"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe5-EA-VVQ">
-                                <rect key="frame" x="125" y="347" width="92" height="30"/>
-                                <state key="normal" title="Change Filter">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeFilter:" destination="Xs5-83-iVp" eventType="touchUpInside" id="0D2-kj-lRJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1P0-OP-IW2">
                                 <rect key="frame" x="37" y="385" width="114" height="30"/>
                                 <state key="normal" title="Share to Wechat">
@@ -518,6 +509,24 @@
                                 </state>
                                 <connections>
                                     <segue destination="tTz-OU-g5o" kind="show" id="cox-ah-Awy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe5-EA-VVQ">
+                                <rect key="frame" x="59" y="347" width="92" height="30"/>
+                                <state key="normal" title="Change Filter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFilter:" destination="Xs5-83-iVp" eventType="touchUpInside" id="0D2-kj-lRJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Q9-pm-Tvn">
+                                <rect key="frame" x="186" y="347" width="96" height="30"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadImages:" destination="Xs5-83-iVp" eventType="touchUpInside" id="vIY-7L-mip"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -550,15 +559,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNC-6B-NKT">
-                                <rect key="frame" x="117" y="397" width="93" height="30"/>
-                                <state key="normal" title="Record Video">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recordVideo:" destination="tTz-OU-g5o" eventType="touchUpInside" id="DWM-3X-kSN"/>
-                                </connections>
-                            </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPe-S6-wqu">
                                 <rect key="frame" x="38" y="99" width="250" height="222"/>
                                 <color key="backgroundColor" red="0.97910879629629632" green="0.97430555555555554" blue="0.98168402777777586" alpha="1" colorSpace="calibratedRGB"/>
@@ -570,6 +570,24 @@
                                 </state>
                                 <connections>
                                     <action selector="selectVideo:" destination="tTz-OU-g5o" eventType="touchUpInside" id="aFT-rM-v4U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTy-YV-MuH">
+                                <rect key="frame" x="117" y="506" width="93" height="30"/>
+                                <state key="normal" title="Upload Video">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadVideo:" destination="tTz-OU-g5o" eventType="touchUpInside" id="sO6-Ul-EGT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNC-6B-NKT">
+                                <rect key="frame" x="117" y="544" width="93" height="30"/>
+                                <state key="normal" title="Record Video">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="tTz-OU-g5o" eventType="touchUpInside" id="DWM-3X-kSN"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -905,7 +905,7 @@
 				TargetAttributes = {
 					DAC619E81B4B71540078F737 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = QDC996CTVH;
+						DevelopmentTeam = 777S6HRAMC;
 					};
 					DAC61A011B4B71540078F737 = {
 						CreatedOnToolsVersion = 6.4;
