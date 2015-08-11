@@ -11,7 +11,7 @@
 
 #import "RecordVideoViewController.h"
 
-#import "YoukuUploader.h"
+
 
 @interface RecordVideoViewController ()
 

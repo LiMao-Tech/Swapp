@@ -10,7 +10,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface RecordVideoViewController : UIViewController
+#import "YoukuUploader.h"
+
+@interface RecordVideoViewController : UIViewController <YoukuUploaderDelegate>
 
 @property (strong, nonatomic) NSURL *videoURL;
 @property (retain, nonatomic) IBOutlet MPMoviePlayerController *videoController;
