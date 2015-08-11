@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewDelegate.h"
+#import "WXApi.h"
 #import "Reachability.h"
 #import "AFNetworking.h"
 

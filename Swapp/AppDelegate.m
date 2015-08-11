@@ -67,7 +67,6 @@
     // set up AFNetworking manager
     self.AFNManager = [AFHTTPRequestOperationManager manager];
     
-    
     //[ShareSDK registerApp:@"946e5266c1c6"];
     [ShareSDK registerApp:@"5559f92aa230"];
     [self initializePlat];
