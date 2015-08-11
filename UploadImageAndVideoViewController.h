@@ -17,6 +17,7 @@
 
 @property NSMutableArray *chosenImages;
 @property NSInteger counter;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideBarButton;
 
 
 

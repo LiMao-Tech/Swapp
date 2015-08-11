@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rMw-vj-3di">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rMw-vj-3di">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -97,10 +97,13 @@
                         <barButtonItem key="leftBarButtonItem" title="SideBar" id="DCC-Gw-9r6"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="sideBarButton" destination="DCC-Gw-9r6" id="PAx-nQ-nKf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="td9-Rw-ACe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2886" y="1200"/>
+            <point key="canvasLocation" x="2899" y="1213"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="SV1-3h-80S">
@@ -303,6 +306,28 @@
                                     <segue destination="g4y-fC-heW" kind="custom" customClass="SWRevealViewControllerSegue" id="j7U-qb-5t0"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="相机2" id="ctb-1k-2Ec">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ctb-1k-2Ec" id="CIl-0z-MNq">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="相机2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIE-zd-uoY">
+                                            <rect key="frame" x="283" y="11" width="34" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hIE-zd-uoY" firstAttribute="centerX" secondItem="CIl-0z-MNq" secondAttribute="centerX" id="HNR-G8-Ue1"/>
+                                        <constraint firstItem="hIE-zd-uoY" firstAttribute="centerY" secondItem="CIl-0z-MNq" secondAttribute="centerY" id="KmU-ee-kme"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Xs5-83-iVp" kind="custom" customClass="SWRevealViewControllerSegue" id="pvC-qL-8M1"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -419,6 +444,146 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Di1-0t-AsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2311" y="-256"/>
+        </scene>
+        <!--相机2-->
+        <scene sceneID="cqh-vO-VGX">
+            <objects>
+                <viewController id="Xs5-83-iVp" customClass="SelectImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ayY-sp-O0N"/>
+                        <viewControllerLayoutGuide type="bottom" id="rNu-Jv-uZs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gWQ-gO-9BN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTV-Xm-Ej2">
+                                <rect key="frame" x="133" y="233" width="77" height="30"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="Xs5-83-iVp" eventType="touchUpInside" id="UIj-M7-vUa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c87-H2-O0T">
+                                <rect key="frame" x="79" y="271" width="185" height="30"/>
+                                <state key="normal" title="Choose Photo from Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="Xs5-83-iVp" eventType="touchUpInside" id="Iup-DD-Ifk"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9zb-Sm-f1u">
+                                <rect key="frame" x="51" y="17" width="240" height="196"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CTN-SO-dhs">
+                                <rect key="frame" x="49" y="309" width="244" height="31"/>
+                                <connections>
+                                    <action selector="sliderChange:" destination="Xs5-83-iVp" eventType="valueChanged" id="jJC-y1-asK"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe5-EA-VVQ">
+                                <rect key="frame" x="125" y="347" width="92" height="30"/>
+                                <state key="normal" title="Change Filter">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFilter:" destination="Xs5-83-iVp" eventType="touchUpInside" id="0D2-kj-lRJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1P0-OP-IW2">
+                                <rect key="frame" x="37" y="385" width="114" height="30"/>
+                                <state key="normal" title="Share to Wechat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareWechat:" destination="Xs5-83-iVp" eventType="touchUpInside" id="ftK-tq-giI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Otj-CF-UPc">
+                                <rect key="frame" x="186" y="385" width="105" height="30"/>
+                                <state key="normal" title="Share to Weibo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareWeibo:" destination="Xs5-83-iVp" eventType="touchUpInside" id="HgL-32-ioe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz7-tT-iNX">
+                                <rect key="frame" x="148" y="423" width="47" height="30"/>
+                                <state key="normal" title="Videos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tTz-OU-g5o" kind="show" id="cox-ah-Awy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="相机2" id="SaD-ky-XNW">
+                        <barButtonItem key="leftBarButtonItem" title="SideBar" id="w9Q-QD-009"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="imageView" destination="9zb-Sm-f1u" id="vl1-SE-0tq"/>
+                        <outlet property="sideBarButton" destination="w9Q-QD-009" id="Ajs-gv-Kq5"/>
+                        <outlet property="sliderValue" destination="CTN-SO-dhs" id="J9W-Ty-lPc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PeG-YG-Zlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3652" y="1213"/>
+        </scene>
+        <!--Record Video View Controller-->
+        <scene sceneID="I82-pk-ptR">
+            <objects>
+                <viewController id="tTz-OU-g5o" customClass="RecordVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ptv-Gr-xwW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ns9-IH-06Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qVO-TT-X5U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNC-6B-NKT">
+                                <rect key="frame" x="117" y="397" width="93" height="30"/>
+                                <state key="normal" title="Record Video">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordVideo:" destination="tTz-OU-g5o" eventType="touchUpInside" id="DWM-3X-kSN"/>
+                                </connections>
+                            </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VPe-S6-wqu">
+                                <rect key="frame" x="38" y="99" width="250" height="222"/>
+                                <color key="backgroundColor" red="0.97910879629629632" green="0.97430555555555554" blue="0.98168402777777586" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZZ-mf-3e9">
+                                <rect key="frame" x="72" y="461" width="183" height="30"/>
+                                <state key="normal" title="Choose Video from Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectVideo:" destination="tTz-OU-g5o" eventType="touchUpInside" id="aFT-rM-v4U"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="S1M-z5-WDi"/>
+                    <connections>
+                        <outlet property="uiview" destination="VPe-S6-wqu" id="Wlf-uw-zq1"/>
+                        <outlet property="videoController" destination="VPe-S6-wqu" id="3Ww-It-Nnf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jco-KS-u5o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4314" y="1200"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

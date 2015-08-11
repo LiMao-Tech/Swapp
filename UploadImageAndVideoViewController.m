@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "CommonImports.h"
-
+#import "SWRevealViewController.h"
 
 @interface UploadImageAndVideoViewController ()
 
@@ -40,6 +40,15 @@ static NSString * redirect_url = @"http://www.limao-tech.com/";
 - (void)viewDidLoad {
     [super viewDidLoad];
     //access_token = @"783407f4ab60d5e45c40099515ea35ae";
+    
+    // setup sidebar menu
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sideBarButton setTarget: self.revealViewController];
+        [self.sideBarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
     
     //get access token label
     accessTokenLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 250, 200, 60)];
